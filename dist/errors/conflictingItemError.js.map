@@ -1,0 +1,1 @@
+{"version":3,"file":"conflictingItemError.js","sourceRoot":"","sources":["../../src/errors/conflictingItemError.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;AAAA,yCAAuC;AAEvC;IAAkD,wCAAS;IAKzD,8BAAmB,QAAgB,EAAE,MAAc;QAAnD,YACE,iBAAO,SAGR;QAFC,KAAI,CAAC,QAAQ,GAAG,QAAQ,CAAC;QACzB,KAAI,CAAC,MAAM,GAAG,MAAM,CAAC;;IACvB,CAAC;IACH,2BAAC;AAAD,CAAC,AAVD,CAAkD,sBAAS,GAU1D"}
