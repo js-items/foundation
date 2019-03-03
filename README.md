@@ -1,4 +1,5 @@
 # foundation
+Provides set of interfaces and tests for concrete implementations of js-items repositories
 
 ## Installation
 `npm i -D @js-items/foundation`
