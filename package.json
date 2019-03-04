@@ -2,7 +2,7 @@
   "name": "@js-items/foundation",
   "version": "0.0.0-development",
   "description": "Provides set of interfaces and tests for concrete implementations of js-items repositories",
-  "main": "./src/index.ts",
+  "main": "./dist/index.js",
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && tsc",
