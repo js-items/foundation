@@ -2,7 +2,7 @@
   "name": "@js-items/foundation",
   "version": "0.0.0-development",
   "description": "Provides set of interfaces and tests for concrete implementations of js-items repositories",
-  "main": "index.js",
+  "main": "./src/index.ts",
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && tsc",
@@ -33,6 +33,9 @@
     "tslint": "5.13.1",
     "tslint-config-prettier": "1.18.0",
     "typescript": "3.3.3333"
+  },
+  "devEngines": {
+    "node": "8.x || 9.x || 10.x || 11.x"
   },
   "publishConfig": {
     "access": "public"
