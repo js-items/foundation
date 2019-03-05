@@ -1,6 +1,6 @@
-import Item from "../../interfaces/item";
-import Pagination from "../../interfaces/pagination";
-import Sort from "../../interfaces/sort";
+import Item from "../../interfaces/Item";
+import Pagination from "../../interfaces/Pagination";
+import Sort from "../../interfaces/Sort";
 declare const _default: <I extends Item>(sortKey: string, sort: Sort<I>, pagination: Pagination, cursorObj: any) => {
     $gt: any;
     $gte?: undefined;

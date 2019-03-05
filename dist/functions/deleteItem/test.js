@@ -46,7 +46,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-var itemNotFoundError_1 = __importDefault(require("../../errors/itemNotFoundError"));
+var ItemNotFoundError_1 = __importDefault(require("../../errors/ItemNotFoundError"));
 var testItem_1 = __importStar(require("../utils/testItem"));
 var testUsingFilter_1 = __importStar(require("../utils/testUsingFilter"));
 exports.default = (function (_a) {
@@ -73,7 +73,7 @@ exports.default = (function (_a) {
                             return [3 /*break*/, 6];
                         case 5:
                             e_1 = _a.sent();
-                            expect(e_1).toBeInstanceOf(itemNotFoundError_1.default);
+                            expect(e_1).toBeInstanceOf(ItemNotFoundError_1.default);
                             return [3 /*break*/, 6];
                         case 6:
                             _a.trys.push([6, 8, , 9]);
@@ -83,7 +83,7 @@ exports.default = (function (_a) {
                             return [3 /*break*/, 9];
                         case 8:
                             e_2 = _a.sent();
-                            expect(e_2).toBeInstanceOf(itemNotFoundError_1.default);
+                            expect(e_2).toBeInstanceOf(ItemNotFoundError_1.default);
                             return [3 /*break*/, 9];
                         case 9: return [2 /*return*/];
                     }
@@ -105,7 +105,7 @@ exports.default = (function (_a) {
                             return [3 /*break*/, 5];
                         case 4:
                             e_3 = _a.sent();
-                            expect(e_3).toBeInstanceOf(itemNotFoundError_1.default);
+                            expect(e_3).toBeInstanceOf(ItemNotFoundError_1.default);
                             return [3 /*break*/, 5];
                         case 5: return [2 /*return*/];
                     }
@@ -123,7 +123,7 @@ exports.default = (function (_a) {
                             return [3 /*break*/, 3];
                         case 2:
                             e_4 = _a.sent();
-                            expect(e_4).toBeInstanceOf(itemNotFoundError_1.default);
+                            expect(e_4).toBeInstanceOf(ItemNotFoundError_1.default);
                             return [3 /*break*/, 3];
                         case 3: return [2 /*return*/];
                     }
@@ -145,7 +145,7 @@ exports.default = (function (_a) {
                             return [3 /*break*/, 5];
                         case 4:
                             e_5 = _a.sent();
-                            expect(e_5).toBeInstanceOf(itemNotFoundError_1.default);
+                            expect(e_5).toBeInstanceOf(ItemNotFoundError_1.default);
                             return [3 /*break*/, 5];
                         case 5: return [2 /*return*/];
                     }
@@ -167,7 +167,7 @@ exports.default = (function (_a) {
                         return [3 /*break*/, 4];
                     case 3:
                         e_6 = _a.sent();
-                        expect(e_6).toBeInstanceOf(itemNotFoundError_1.default);
+                        expect(e_6).toBeInstanceOf(ItemNotFoundError_1.default);
                         return [3 /*break*/, 4];
                     case 4: return [2 /*return*/];
                 }
@@ -192,7 +192,7 @@ exports.default = (function (_a) {
                         return [3 /*break*/, 6];
                     case 5:
                         e_7 = _a.sent();
-                        expect(e_7).toBeInstanceOf(itemNotFoundError_1.default);
+                        expect(e_7).toBeInstanceOf(ItemNotFoundError_1.default);
                         return [3 /*break*/, 6];
                     case 6: return [2 /*return*/];
                 }

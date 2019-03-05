@@ -4,16 +4,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var testItem_1 = __importDefault(require("../../functions/utils/testItem"));
-var cursor_1 = require("../../interfaces/cursor");
-var sortOrder_1 = require("../../interfaces/sortOrder");
+var Cursor_1 = require("../../interfaces/Cursor");
+var SortOrder_1 = require("../../interfaces/SortOrder");
 var createCursorFromItem_1 = __importDefault(require("../createCursorFromItem"));
 var index_1 = __importDefault(require("./index"));
 describe("createPaginationFilter", function () {
-    var sort = { numberProperty: sortOrder_1.desc, id: sortOrder_1.asc };
+    var sort = { numberProperty: SortOrder_1.desc, id: SortOrder_1.asc };
     it("should return empty filter when the cursor is start", function () {
         var pagination = {
-            after: cursor_1.start,
-            before: cursor_1.start,
+            after: Cursor_1.start,
+            before: Cursor_1.start,
             limit: 1
         };
         var actualResult = index_1.default(pagination, sort);

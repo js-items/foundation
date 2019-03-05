@@ -1,19 +1,19 @@
-import countItems from "./countItems";
-import createItem from "./createItem";
-import deleteItem from "./deleteItem";
-import deleteItems from "./deleteItems";
-import getItem from "./getItem";
-import getItems from "./getItems";
-import replaceItem from "./replaceItem";
-import updateItem from "./updateItem";
+import CountItems from "./CountItems";
+import CreateItem from "./CreateItem";
+import DeleteItem from "./DeleteItem";
+import DeleteItems from "./DeleteItems";
+import GetItem from "./GetItem";
+import GetItems from "./GetItems";
+import ReplaceItem from "./ReplaceItem";
+import UpdateItem from "./UpdateItem";
 
 export {
-  countItems,
-  createItem,
-  getItems,
-  getItem,
-  deleteItem,
-  deleteItems,
-  replaceItem,
-  updateItem
+  CountItems,
+  CreateItem,
+  GetItems,
+  GetItem,
+  DeleteItem,
+  DeleteItems,
+  ReplaceItem,
+  UpdateItem
 };

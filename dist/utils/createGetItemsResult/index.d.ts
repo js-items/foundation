@@ -1,7 +1,7 @@
 import { Result } from "../../functions/getItems";
-import Item from "../../interfaces/item";
-import Pagination from "../../interfaces/pagination";
-import Sort from "../../interfaces/sort";
+import Item from "../../interfaces/Item";
+import Pagination from "../../interfaces/Pagination";
+import Sort from "../../interfaces/Sort";
 export interface Options<I extends Item> {
     readonly items: I[];
     readonly pagination: Pagination;

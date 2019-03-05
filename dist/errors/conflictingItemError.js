@@ -25,4 +25,4 @@ var ConflictingItemError = /** @class */ (function (_super) {
     return ConflictingItemError;
 }(make_error_1.BaseError));
 exports.default = ConflictingItemError;
-//# sourceMappingURL=conflictingItemError.js.map
+//# sourceMappingURL=ConflictingItemError.js.map

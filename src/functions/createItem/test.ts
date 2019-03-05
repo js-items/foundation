@@ -1,5 +1,5 @@
-import ConflictingItemError from "../../errors/conflictingItemError";
-import Options from "../../interfaces/options";
+import ConflictingItemError from "../../errors/ConflictingItemError";
+import Options from "../../interfaces/Options";
 import testItem, { testId, TestItem } from "../utils/testItem";
 
 export default ({ facade }: Options<TestItem>) => {

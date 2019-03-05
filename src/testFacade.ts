@@ -7,7 +7,7 @@ import testGetItems from "./functions/getItems/test";
 import testReplaceItem from "./functions/replaceItem/test";
 import testUpdateItem from "./functions/updateItem/test";
 import { TestItem } from "./functions/utils/testItem";
-import Options from "./interfaces/options";
+import Options from "./interfaces/Options";
 
 export default (options: Options<TestItem>) => {
   describe("testFacade", () => {

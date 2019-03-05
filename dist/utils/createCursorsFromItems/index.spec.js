@@ -16,11 +16,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var testItem_1 = __importDefault(require("../../functions/utils/testItem"));
 var testUsingFilter_1 = require("../../functions/utils/testUsingFilter");
-var cursor_1 = require("../../interfaces/cursor");
-var sortOrder_1 = require("../../interfaces/sortOrder");
+var Cursor_1 = require("../../interfaces/Cursor");
+var SortOrder_1 = require("../../interfaces/SortOrder");
 var index_1 = __importDefault(require("./index"));
 describe("createCursorsFromEntities", function () {
-    var sort = { id: sortOrder_1.asc };
+    var sort = { id: SortOrder_1.asc };
     var firstId = "id1";
     var secondId = "id2";
     var firstEntity = __assign({}, testItem_1.default, { id: firstId });
@@ -29,16 +29,16 @@ describe("createCursorsFromEntities", function () {
     var secondCursor = "eyJpZCI6ImlkMiJ9";
     it("return cursor when no items", function () {
         var items = [];
-        var cursor = cursor_1.start;
+        var cursor = Cursor_1.start;
         var result = index_1.default({ cursor: cursor, items: items, sort: sort });
         expect(result).toEqual({
-            after: cursor_1.start,
-            before: cursor_1.start
+            after: Cursor_1.start,
+            before: Cursor_1.start
         });
     });
     it("return correct cursors when there is one item", function () {
         var items = [testUsingFilter_1.firstItem];
-        var cursor = cursor_1.start;
+        var cursor = Cursor_1.start;
         var result = index_1.default({ cursor: cursor, items: items, sort: sort });
         expect(result).toEqual({
             after: firstCursor,
@@ -47,7 +47,7 @@ describe("createCursorsFromEntities", function () {
     });
     it("should return the correct cursors when there are many entities", function () {
         var items = [firstEntity, secondEntity];
-        var cursor = cursor_1.start;
+        var cursor = Cursor_1.start;
         var result = index_1.default({ cursor: cursor, items: items, sort: sort });
         expect(result).toEqual({
             after: secondCursor,

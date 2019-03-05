@@ -15,11 +15,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var atob_1 = __importDefault(require("atob"));
-var cursor_1 = require("../../interfaces/cursor");
+var Cursor_1 = require("../../interfaces/Cursor");
 var getCursorKeyFilter_1 = __importDefault(require("../getCursorKeyFilter"));
 exports.default = (function (pagination, sort) {
     var before = pagination.before, after = pagination.after;
-    if (before === cursor_1.start && after === cursor_1.start) {
+    if (before === Cursor_1.start && after === Cursor_1.start) {
         return {};
     }
     var cursor = before !== undefined ? before : after;

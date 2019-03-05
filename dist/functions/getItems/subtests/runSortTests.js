@@ -50,7 +50,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-var sortOrder_1 = require("../../../interfaces/sortOrder");
+var SortOrder_1 = require("../../../interfaces/SortOrder");
 var testItem_1 = __importDefault(require("../../utils/testItem"));
 exports.default = (function (_a) {
     var facade = _a.facade;
@@ -108,7 +108,7 @@ exports.default = (function (_a) {
                         return [4 /*yield*/, facade.createItem({ id: secondId, item: secondItem })];
                     case 2:
                         _a.sent();
-                        return [4 /*yield*/, assertSort([firstItem, secondItem], { stringProperty: sortOrder_1.asc })];
+                        return [4 /*yield*/, assertSort([firstItem, secondItem], { stringProperty: SortOrder_1.asc })];
                     case 3:
                         _a.sent();
                         return [2 /*return*/];
@@ -124,7 +124,7 @@ exports.default = (function (_a) {
                         return [4 /*yield*/, facade.createItem({ id: firstId, item: firstItem })];
                     case 2:
                         _a.sent();
-                        return [4 /*yield*/, assertSort([firstItem, secondItem], { stringProperty: sortOrder_1.asc })];
+                        return [4 /*yield*/, assertSort([firstItem, secondItem], { stringProperty: SortOrder_1.asc })];
                     case 3:
                         _a.sent();
                         return [2 /*return*/];
@@ -140,7 +140,7 @@ exports.default = (function (_a) {
                         return [4 /*yield*/, facade.createItem({ id: firstId, item: firstItem })];
                     case 2:
                         _a.sent();
-                        return [4 /*yield*/, assertSort([secondItem, firstItem], { stringProperty: sortOrder_1.desc })];
+                        return [4 /*yield*/, assertSort([secondItem, firstItem], { stringProperty: SortOrder_1.desc })];
                     case 3:
                         _a.sent();
                         return [2 /*return*/];
@@ -156,7 +156,7 @@ exports.default = (function (_a) {
                         return [4 /*yield*/, facade.createItem({ id: secondId, item: secondItem })];
                     case 2:
                         _a.sent();
-                        return [4 /*yield*/, assertSort([secondItem, firstItem], { stringProperty: sortOrder_1.desc })];
+                        return [4 /*yield*/, assertSort([secondItem, firstItem], { stringProperty: SortOrder_1.desc })];
                     case 3:
                         _a.sent();
                         return [2 /*return*/];
@@ -173,8 +173,8 @@ exports.default = (function (_a) {
                     case 2:
                         _a.sent();
                         return [4 /*yield*/, assertSort([firstItem, secondItem], {
-                                numberProperty: sortOrder_1.desc,
-                                stringProperty: sortOrder_1.asc
+                                numberProperty: SortOrder_1.desc,
+                                stringProperty: SortOrder_1.asc
                             })];
                     case 3:
                         _a.sent();
@@ -192,8 +192,8 @@ exports.default = (function (_a) {
                     case 2:
                         _a.sent();
                         return [4 /*yield*/, assertSort([secondItem, firstItem], {
-                                numberProperty: sortOrder_1.asc,
-                                stringProperty: sortOrder_1.desc
+                                numberProperty: SortOrder_1.asc,
+                                stringProperty: SortOrder_1.desc
                             })];
                     case 3:
                         _a.sent();

@@ -15,11 +15,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var testItem_1 = __importDefault(require("../../functions/utils/testItem"));
-var cursor_1 = require("../../interfaces/cursor");
-var sortOrder_1 = require("../../interfaces/sortOrder");
+var Cursor_1 = require("../../interfaces/Cursor");
+var SortOrder_1 = require("../../interfaces/SortOrder");
 var index_1 = __importDefault(require("./index"));
 describe("createGetItemsResult backward", function () {
-    var sort = { id: sortOrder_1.asc };
+    var sort = { id: SortOrder_1.asc };
     var firstId = "test_id_1";
     var firstItem = __assign({}, testItem_1.default, { id: firstId });
     var firstCursor = "eyJpZCI6InRlc3RfaWRfMSJ9";
@@ -27,16 +27,16 @@ describe("createGetItemsResult backward", function () {
     it("returns correct result when there are no items and no cursors present", function () {
         var items = [];
         var pagination = {
-            after: cursor_1.start,
-            before: cursor_1.start,
+            after: Cursor_1.start,
+            before: Cursor_1.start,
             limit: 1
         };
         var isEnd = true;
         var result = index_1.default({ items: items, isEnd: isEnd, pagination: pagination, sort: sort });
         expect(result).toEqual({
             cursor: {
-                after: cursor_1.start,
-                before: cursor_1.start,
+                after: Cursor_1.start,
+                before: Cursor_1.start,
                 hasAfter: false,
                 hasBefore: false
             },

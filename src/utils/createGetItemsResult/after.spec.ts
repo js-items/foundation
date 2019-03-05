@@ -1,7 +1,7 @@
 import testItem, { TestItem } from "../../functions/utils/testItem";
-import Pagination from "../../interfaces/pagination";
-import Sort from "../../interfaces/sort";
-import { asc } from "../../interfaces/sortOrder";
+import Pagination from "../../interfaces/Pagination";
+import Sort from "../../interfaces/Sort";
+import { asc } from "../../interfaces/SortOrder";
 import createGetItemsResult from "./index";
 
 describe("createGetItemsResult forward", () => {

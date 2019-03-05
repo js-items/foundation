@@ -1,7 +1,7 @@
-import conflictingItemError from "./conflictingItemError";
-import itemNotFoundError from "./itemNotFoundError";
+import ConflictingItemError from "./ConflictingItemError";
+import ItemNotFoundError from "./ItemNotFoundError";
 
 export {
-  conflictingItemError,
-  itemNotFoundError
+  ConflictingItemError,
+  ItemNotFoundError
 };

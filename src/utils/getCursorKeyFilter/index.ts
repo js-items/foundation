@@ -1,8 +1,8 @@
-import { start } from "../../interfaces/cursor";
-import Item from "../../interfaces/item";
-import Pagination from "../../interfaces/pagination";
-import Sort from "../../interfaces/sort";
-import { asc } from "../../interfaces/sortOrder";
+import { start } from "../../interfaces/Cursor";
+import Item from "../../interfaces/Item";
+import Pagination from "../../interfaces/Pagination";
+import Sort from "../../interfaces/Sort";
+import { asc } from "../../interfaces/SortOrder";
 import xor from "../xor";
 
 export default <I extends Item>(

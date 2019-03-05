@@ -15,10 +15,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var testItem_1 = __importDefault(require("../../functions/utils/testItem"));
-var sortOrder_1 = require("../../interfaces/sortOrder");
+var SortOrder_1 = require("../../interfaces/SortOrder");
 var index_1 = __importDefault(require("./index"));
 describe("createGetItemsResult forward", function () {
-    var sort = { id: sortOrder_1.asc };
+    var sort = { id: SortOrder_1.asc };
     var secondId = "test_id_2";
     var secondItem = __assign({}, testItem_1.default, { id: secondId });
     var firstCursor = "eyJpZCI6InRlc3RfaWRfMSJ9";

@@ -46,7 +46,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-var itemNotFoundError_1 = __importDefault(require("../../errors/itemNotFoundError"));
+var ItemNotFoundError_1 = __importDefault(require("../../errors/ItemNotFoundError"));
 var testUsingFilter_1 = __importStar(require("../utils/testUsingFilter"));
 exports.default = (function (_a) {
     var facade = _a.facade;
@@ -116,7 +116,7 @@ exports.default = (function (_a) {
                             return [3 /*break*/, 5];
                         case 4:
                             e_1 = _a.sent();
-                            expect(e_1).toBeInstanceOf(itemNotFoundError_1.default);
+                            expect(e_1).toBeInstanceOf(ItemNotFoundError_1.default);
                             return [3 /*break*/, 5];
                         case 5: return [2 /*return*/];
                     }

@@ -1,5 +1,5 @@
-export * from "./errors";
-export * from "./facade";
+export * from "./errors/index";
+export * from "./Facade";
 export * from "./functions";
 export * from "./interfaces";
 export * from "./testFacade";

@@ -6,7 +6,7 @@ import GetItem from "./functions/getItem";
 import GetItems from "./functions/getItems";
 import ReplaceItem from "./functions/replaceItem";
 import UpdateItem from "./functions/updateItem";
-import Item from "./interfaces/item";
+import Item from "./interfaces/Item";
 export default interface Facade<I extends Item> {
     readonly createItem: CreateItem<I>;
     readonly getItem: GetItem<I>;

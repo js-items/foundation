@@ -50,13 +50,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-var cursor_1 = require("../../../interfaces/cursor");
-var sortOrder_1 = require("../../../interfaces/sortOrder");
+var Cursor_1 = require("../../../interfaces/Cursor");
+var SortOrder_1 = require("../../../interfaces/SortOrder");
 var createCursorFromItem_1 = __importDefault(require("../../../utils/createCursorFromItem"));
 var testItem_1 = __importDefault(require("../../utils/testItem"));
 exports.default = (function (_a) {
     var facade = _a.facade;
-    var sort = { id: sortOrder_1.asc };
+    var sort = { id: SortOrder_1.asc };
     var firstId = "id1";
     var secondId = "id2";
     var firstItem = __assign({}, testItem_1.default, { id: firstId });
@@ -114,7 +114,7 @@ exports.default = (function (_a) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    pagination = __assign({}, basePagination, { after: cursor_1.start });
+                    pagination = __assign({}, basePagination, { after: Cursor_1.start });
                     return [4 /*yield*/, facade.getItems({ pagination: pagination, sort: sort })];
                 case 1:
                     result = _a.sent();
