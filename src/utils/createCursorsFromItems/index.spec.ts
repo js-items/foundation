@@ -1,8 +1,8 @@
 import testItem, { TestItem } from "../../functions/utils/testItem";
 import { firstItem } from "../../functions/utils/testUsingFilter";
-import { start } from "../../interfaces/cursor";
-import Sort from "../../interfaces/sort";
-import { asc } from "../../interfaces/sortOrder";
+import { start } from "../../interfaces/Cursor";
+import Sort from "../../interfaces/Sort";
+import { asc } from "../../interfaces/SortOrder";
 import createCursorsFromItems from "./index";
 
 describe("createCursorsFromEntities", () => {

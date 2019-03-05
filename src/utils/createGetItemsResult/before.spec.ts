@@ -1,8 +1,8 @@
 import testItem, { TestItem } from "../../functions/utils/testItem";
-import { start } from "../../interfaces/cursor";
-import Pagination from "../../interfaces/pagination";
-import Sort from "../../interfaces/sort";
-import { asc } from "../../interfaces/sortOrder";
+import { start } from "../../interfaces/Cursor";
+import Pagination from "../../interfaces/Pagination";
+import Sort from "../../interfaces/Sort";
+import { asc } from "../../interfaces/SortOrder";
 import createGetItemsResult from "./index";
 
 describe("createGetItemsResult backward", () => {

@@ -1,6 +1,6 @@
-import Cursor from "../../interfaces/cursor";
-import Item from "../../interfaces/item";
-import Sort from "../../interfaces/sort";
+import Cursor from "../../interfaces/Cursor";
+import Item from "../../interfaces/Item";
+import Sort from "../../interfaces/Sort";
 import createCursorFromItem from "../createCursorFromItem";
 
 export interface Options<I extends Item> {

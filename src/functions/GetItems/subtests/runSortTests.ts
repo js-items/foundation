@@ -1,6 +1,6 @@
-import Options from "../../../interfaces/options";
-import Sort from "../../../interfaces/sort";
-import { asc, desc } from "../../../interfaces/sortOrder";
+import Options from "../../../interfaces/Options";
+import Sort from "../../../interfaces/Sort";
+import { asc, desc } from "../../../interfaces/SortOrder";
 import testItem, { TestItem } from "../../utils/testItem";
 
 export default ({ facade }: Options<TestItem>) => {
