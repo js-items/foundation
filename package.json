@@ -2,7 +2,8 @@
   "name": "@js-items/foundation",
   "version": "0.0.0-development",
   "description": "Provides set of interfaces and tests for concrete implementations of js-items repositories",
-  "main": "./dist/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && tsc",
@@ -25,7 +26,7 @@
     "@kube-js/semantic-release": "1.0.7",
     "@kube-js/tscommons": "1.0.3",
     "@types/btoa": "1.2.2",
-    "@types/jest": "24.0.9",
+    "@types/jest": "^24.0.9",
     "@types/node": "11.10.4",
     "jest": "24.1.0",
     "rimraf": "2.6.3",
