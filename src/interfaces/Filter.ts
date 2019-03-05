@@ -9,6 +9,7 @@ export interface ComparisonFilter<Value> {
   readonly $lte?: Value;
   readonly $ne?: Value;
   readonly $nin?: Value[];
+  readonly $not?: ComparisonFilter<Value>;
   readonly $search?: Value;
 }
 
