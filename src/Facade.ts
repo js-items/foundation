@@ -1,12 +1,12 @@
-import countItems from "./functions/CountItems";
-import createItem from "./functions/CreateItem";
-import deleteItem from "./functions/DeleteItem";
-import deleteItems from "./functions/DeleteItems";
-import getItem from "./functions/GetItem";
-import getItems from "./functions/GetItems";
-import replaceItem from "./functions/ReplaceItem";
-import updateItem from "./functions/UpdateItem";
-import Item from "./interfaces/item";
+import CountItems from "./functions/CountItems";
+import CreateItem from "./functions/CreateItem";
+import DeleteItem from "./functions/DeleteItem";
+import DeleteItems from "./functions/DeleteItems";
+import GetItem from "./functions/GetItem";
+import GetItems from "./functions/GetItems";
+import ReplaceItem from "./functions/ReplaceItem";
+import UpdateItem from "./functions/UpdateItem";
+import Item from "./interfaces/Item";
 
 export default interface Facade<I extends Item> {
   readonly countItems: CountItems<I>;
