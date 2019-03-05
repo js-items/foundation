@@ -1,4 +1,4 @@
-import { Result } from "../../functions/getItems";
+import { Result } from "../../functions/GetItems";
 import Item from "../../interfaces/Item";
 import Pagination from "../../interfaces/Pagination";
 import Sort from "../../interfaces/Sort";

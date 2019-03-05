@@ -39,14 +39,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-var test_1 = __importDefault(require("./functions/countItems/test"));
-var test_2 = __importDefault(require("./functions/createItem/test"));
-var test_3 = __importDefault(require("./functions/deleteItem/test"));
-var test_4 = __importDefault(require("./functions/deleteItems/test"));
-var test_5 = __importDefault(require("./functions/getItem/test"));
-var test_6 = __importDefault(require("./functions/getItems/test"));
-var test_7 = __importDefault(require("./functions/replaceItem/test"));
-var test_8 = __importDefault(require("./functions/updateItem/test"));
+var test_1 = __importDefault(require("./functions/CountItems/test"));
+var test_2 = __importDefault(require("./functions/CreateItem/test"));
+var test_3 = __importDefault(require("./functions/DeleteItem/test"));
+var test_4 = __importDefault(require("./functions/DeleteItems/test"));
+var test_5 = __importDefault(require("./functions/GetItem/test"));
+var test_6 = __importDefault(require("./functions/GetItems/test"));
+var test_7 = __importDefault(require("./functions/ReplaceItem/test"));
+var test_8 = __importDefault(require("./functions/UpdateItem/test"));
 exports.default = (function (options) {
     describe("testFacade", function () {
         beforeEach(function () { return __awaiter(_this, void 0, void 0, function () {
