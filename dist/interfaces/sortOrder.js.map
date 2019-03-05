@@ -1,1 +1,1 @@
-{"version":3,"file":"sortOrder.js","sourceRoot":"","sources":["../../src/interfaces/sortOrder.ts"],"names":[],"mappings":";;AAAa,QAAA,GAAG,GAAG,KAAK,CAAC;AACZ,QAAA,IAAI,GAAG,MAAM,CAAC"}
+{"version":3,"file":"SortOrder.js","sourceRoot":"","sources":["../../src/interfaces/SortOrder.ts"],"names":[],"mappings":";;AAAa,QAAA,GAAG,GAAG,KAAK,CAAC;AACZ,QAAA,IAAI,GAAG,MAAM,CAAC"}

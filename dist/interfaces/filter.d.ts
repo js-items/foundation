@@ -1,4 +1,4 @@
-import Item from './item';
+import Item from './Item';
 export interface ComparisonFilter<Value> {
     readonly $eq?: Value;
     readonly $gt?: Value;

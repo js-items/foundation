@@ -1,5 +1,5 @@
-import Item from './item';
-import SortOrder from './sortOrder';
+import Item from './Item';
+import SortOrder from './SortOrder';
 declare type Sort<I extends Item> = {
     readonly [P in keyof I]?: SortOrder;
 };

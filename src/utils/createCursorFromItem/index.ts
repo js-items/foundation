@@ -1,7 +1,7 @@
 import btoa from "btoa";
-import Cursor from "../../interfaces/cursor";
-import Item from "../../interfaces/item";
-import Sort from "../../interfaces/sort";
+import Cursor from "../../interfaces/Cursor";
+import Item from "../../interfaces/Item";
+import Sort from "../../interfaces/Sort";
 
 export default <I extends Item>(item: I, sort: Sort<I>): Cursor => {
   const sortKeys = Object.keys(sort);

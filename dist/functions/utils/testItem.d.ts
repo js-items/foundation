@@ -1,4 +1,4 @@
-import Item from '../../interfaces/item';
+import Item from '../../interfaces/Item';
 export interface TestItem extends Item {
     readonly booleanProperty: boolean;
     readonly stringProperty: string;
