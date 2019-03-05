@@ -1,5 +1,5 @@
-import Filter from '../../interfaces/Filter';
-import Item from '../../interfaces/Item';
+import Filter from '../../interfaces/filter';
+import Item from '../../interfaces/item';
 
 export interface Options<I extends Item> {
   readonly id: string;

@@ -1,5 +1,5 @@
 import testItem, { TestItem } from "../../functions/utils/testItem";
-import { asc } from "../../interfaces/SortOrder";
+import { asc } from "../../interfaces/sortOrder";
 import createCursorFromEntity from "./index";
 
 describe("@createCursorFromEntity", () => {

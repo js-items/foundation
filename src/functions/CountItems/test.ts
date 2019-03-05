@@ -1,4 +1,4 @@
-import Options from "../../interfaces/Options";
+import Options from "../../interfaces/options";
 import { TestItem } from "../utils/testItem";
 import testUsingFilter from "../utils/testUsingFilter";
 

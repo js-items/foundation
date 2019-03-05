@@ -1,9 +1,9 @@
 import atob from "atob";
-import { start } from "../../interfaces/Cursor";
-import Filter from "../../interfaces/Filter";
-import Item from "../../interfaces/Item";
-import Pagination from "../../interfaces/Pagination";
-import Sort from "../../interfaces/Sort";
+import { start } from "../../interfaces/cursor";
+import Filter from "../../interfaces/filter";
+import Item from "../../interfaces/item";
+import Pagination from "../../interfaces/pagination";
+import Sort from "../../interfaces/sort";
 import getCursorKeyFilter from "../getCursorKeyFilter";
 
 export default <I extends Item>(

@@ -1,5 +1,5 @@
-import ItemNotFoundError from "../../errors/ItemNotFoundError";
-import Options from "../../interfaces/Options";
+import ItemNotFoundError from "../../errors/itemNotFoundError";
+import Options from "../../interfaces/options";
 import testItem, { testId, TestItem } from "../utils/testItem";
 import testUsingFilter, {
   firstItem,

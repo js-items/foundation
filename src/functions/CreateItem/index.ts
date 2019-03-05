@@ -1,4 +1,4 @@
-import Item from '../../interfaces/Item';
+import Item from '../../interfaces/item';
 
 export interface Options<I extends Item> {
   readonly id: string;

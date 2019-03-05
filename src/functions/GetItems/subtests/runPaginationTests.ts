@@ -1,7 +1,7 @@
-import { start } from "../../../interfaces/Cursor";
-import Options from "../../../interfaces/Options";
-import Sort from "../../../interfaces/Sort";
-import { asc } from "../../../interfaces/SortOrder";
+import { start } from "../../../interfaces/cursor";
+import Options from "../../../interfaces/options";
+import Sort from "../../../interfaces/sort";
+import { asc } from "../../../interfaces/sortOrder";
 import createCursorFromItem from "../../../utils/createCursorFromItem";
 import testItem, { TestItem } from "../../utils/testItem";
 

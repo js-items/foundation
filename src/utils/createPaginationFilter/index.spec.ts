@@ -1,9 +1,9 @@
 import testItem, { TestItem } from "../../functions/utils/testItem";
-import { start } from "../../interfaces/Cursor";
-import Filter from "../../interfaces/Filter";
-import Pagination from "../../interfaces/Pagination";
-import Sort from "../../interfaces/Sort";
-import { asc, desc } from "../../interfaces/SortOrder";
+import { start } from "../../interfaces/cursor";
+import Filter from "../../interfaces/filter";
+import Pagination from "../../interfaces/pagination";
+import Sort from "../../interfaces/sort";
+import { asc, desc } from "../../interfaces/sortOrder";
 import createCursorFromItem from "../createCursorFromItem";
 import createPaginationFilter from "./index";
 

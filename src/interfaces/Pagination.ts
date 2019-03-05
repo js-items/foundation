@@ -1,4 +1,4 @@
-import Cursor from "./Cursor";
+import Cursor from "./cursor";
 
 export default interface Pagination {
   readonly before?: Cursor;

@@ -1,5 +1,5 @@
-import Facade from "../../Facade";
-import Filter from "../../interfaces/Filter";
+import Facade from "../../facade";
+import Filter from "../../interfaces/filter";
 import testEntity, { TestItem } from "./testItem";
 
 type FilterAssertion = (filter?: Filter<TestItem>) => Promise<void>;
