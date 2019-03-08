@@ -1,11 +1,12 @@
 import ItemNotFoundError from "../../errors/ItemNotFoundError";
 import Options from "../../interfaces/Options";
-import testItem, { testId, TestItem } from "../utils/testItem";
-import testUsingFilter, {
+import testItem, {
   firstItem,
-  secondItem
-} from "../utils/testUsingFilter";
-
+  secondItem,
+  testId,
+  TestItem,
+} from "../utils/testItem";
+import testUsingFilter from "../utils/testUsingFilter";
 
 export default ({ facade }: Options<TestItem>) => {
   describe("replaceItem", () => {
@@ -59,25 +60,6 @@ export default ({ facade }: Options<TestItem>) => {
         expect(secondItemResult.item).toEqual(secondItemReplacement);
       }
     });
-
-    it("throws error when trying to delete an item which does not exist", async () => {
-      expect.assertions(1);
-      try {
-        await facade.deleteItem({ id: testId });
-      } catch (e) {
-        expect(e).toBeInstanceOf(ItemNotFoundError);
-      }
-    });
-
-    it("deletes an item which exists", async () => {
-      await facade.createItem({ id: testId, item: testItem });
-      await facade.deleteItem({ id: testId });
-      try {
-        await facade.getItem({ id: testId });
-      } catch (e) {
-        expect(e).toBeInstanceOf(ItemNotFoundError);
-      }
-    });
   });
 
   it("throws error when item does not exist", async () => {
@@ -92,17 +74,22 @@ export default ({ facade }: Options<TestItem>) => {
   it("replaces item", async () => {
     const itemReplacement: TestItem = {
       booleanProperty: true,
-      id: "someOtherId",
+      id: testId,
       numberProperty: 17,
       stringProperty: "foobar"
     };
+
     await facade.createItem({ id: testId, item: testItem });
-    await facade.replaceItem({
+
+    const { item: replacedItem } = await facade.replaceItem({
       id: testId,
       item: itemReplacement
     });
+
     const { item } = await facade.getItem({ id: testId });
+
     expect(item).toEqual(itemReplacement);
+    expect(replacedItem).toEqual(itemReplacement);
   });
-// tslint:disable-next-line:max-file-line-count
+  // tslint:disable-next-line:max-file-line-count
 };

@@ -1,6 +1,12 @@
 import Facade from "../../Facade";
 import Filter from "../../interfaces/Filter";
-import testEntity, { TestItem } from "./testItem";
+import testItem, {
+  firstItem,
+  firstItemId,
+  secondItem,
+  secondItemId,
+  TestItem
+} from "./testItem";
 
 type FilterAssertion = (filter?: Filter<TestItem>) => Promise<void>;
 
@@ -11,23 +17,6 @@ interface Options {
   readonly toGetSecondItem: FilterAssertion;
   readonly toGetNoItems: FilterAssertion;
 }
-
-export const firstItemId = "id1";
-export const secondItemId = "id2";
-
-export const firstItem = {
-  ...testEntity,
-  id: firstItemId,
-  numberProperty: 1,
-  stringProperty: "zebra"
-};
-
-export const secondItem = {
-  ...testEntity,
-  id: secondItemId,
-  numberProperty: 2,
-  stringProperty: "slon"
-};
 
 export default ({
   facade,
@@ -64,7 +53,7 @@ export default ({
 
     it("should not filter when using filter which return both items", async () => {
       await toGetAllItems({
-        booleanProperty: testEntity.booleanProperty
+        booleanProperty: testItem.booleanProperty
       });
     });
   });
@@ -92,19 +81,19 @@ export default ({
 
     it("uses '$lt' comparison filter", async () => {
       await toGetSecondItem({
-        numberProperty: 2
+        numberProperty: { $gt: 1, $lt: 3 }
       });
     });
 
     it("uses '$lte' comparison filter", async () => {
       await toGetFirstItem({
-        numberProperty: 1
+        numberProperty: { $lte: 1 }
       });
     });
 
     it("uses '$ne' comparison filter", async () => {
       await toGetFirstItem({
-        stringProperty: secondItem.stringProperty
+        stringProperty: { $ne: secondItem.stringProperty }
       });
     });
 
@@ -133,7 +122,6 @@ export default ({
     it("uses '$gt' comparison filter", async () => {
       await toGetSecondItem({ numberProperty: { $gt: 1 } });
     });
-
 
     it("uses '$and' logical filter", async () => {
       await toGetSecondItem({
@@ -168,16 +156,22 @@ export default ({
             stringProperty: { $search: "kokos" }
           },
           {
-            numberProperty: { $ne: 1 }
+            numberProperty: { $eq: 1 }
           }
         ]
+      });
+    });
+
+    it("uses '$not' logical filter", async () => {
+      await toGetSecondItem({
+        stringProperty: { $not: { $eq: "zebra" } }
       });
     });
   });
 
   describe("toGetNoItems", () => {
     it("will not get any items", async () => {
-      await toGetNoItems({ numberProperty: 999 });
+      await toGetNoItems({ stringProperty: "yeti" });
     });
   });
   // tslint:disable-next-line:max-file-line-count

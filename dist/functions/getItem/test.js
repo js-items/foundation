@@ -48,7 +48,7 @@ var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var ItemNotFoundError_1 = __importDefault(require("../../errors/ItemNotFoundError"));
 var testItem_1 = __importStar(require("../utils/testItem"));
-var testUsingFilter_1 = __importStar(require("../utils/testUsingFilter"));
+var testUsingFilter_1 = __importDefault(require("../utils/testUsingFilter"));
 exports.default = (function (_a) {
     var facade = _a.facade;
     describe("getItem", function () {
@@ -58,14 +58,20 @@ exports.default = (function (_a) {
                 var firstItemResult, secondItemResult;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, facade.getItem({ id: testUsingFilter_1.firstItemId, filter: filter })];
+                        case 0: return [4 /*yield*/, facade.getItem({
+                                filter: filter,
+                                id: testItem_1.firstItemId
+                            })];
                         case 1:
                             firstItemResult = _a.sent();
-                            expect(firstItemResult.item).toBe(testUsingFilter_1.firstItem);
-                            return [4 /*yield*/, facade.getItem({ id: testUsingFilter_1.secondItemId, filter: filter })];
+                            expect(firstItemResult.item).toEqual(testItem_1.firstItem);
+                            return [4 /*yield*/, facade.getItem({
+                                    filter: filter,
+                                    id: testItem_1.secondItemId
+                                })];
                         case 2:
                             secondItemResult = _a.sent();
-                            expect(secondItemResult.item).toBe(testUsingFilter_1.secondItem);
+                            expect(secondItemResult.item).toEqual(testItem_1.secondItem);
                             return [2 /*return*/];
                     }
                 });
@@ -74,10 +80,13 @@ exports.default = (function (_a) {
                 var firstItemResult;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, facade.getItem({ id: testUsingFilter_1.firstItemId, filter: filter })];
+                        case 0: return [4 /*yield*/, facade.getItem({
+                                filter: filter,
+                                id: testItem_1.firstItemId
+                            })];
                         case 1:
                             firstItemResult = _a.sent();
-                            expect(firstItemResult.item).toBe(testUsingFilter_1.firstItem);
+                            expect(firstItemResult.item).toEqual(testItem_1.firstItem);
                             return [2 /*return*/];
                     }
                 });
@@ -88,7 +97,7 @@ exports.default = (function (_a) {
                     switch (_a.label) {
                         case 0:
                             _a.trys.push([0, 2, , 3]);
-                            return [4 /*yield*/, facade.getItem({ id: testUsingFilter_1.firstItemId, filter: filter })];
+                            return [4 /*yield*/, facade.getItem({ id: testItem_1.firstItemId, filter: filter })];
                         case 1:
                             _a.sent();
                             return [3 /*break*/, 3];
@@ -98,7 +107,7 @@ exports.default = (function (_a) {
                             return [3 /*break*/, 3];
                         case 3:
                             _a.trys.push([3, 5, , 6]);
-                            return [4 /*yield*/, facade.getItem({ id: testUsingFilter_1.secondItemId, filter: filter })];
+                            return [4 /*yield*/, facade.getItem({ id: testItem_1.secondItemId, filter: filter })];
                         case 4:
                             _a.sent();
                             return [3 /*break*/, 6];
@@ -114,10 +123,13 @@ exports.default = (function (_a) {
                 var secondItemResult;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, facade.getItem({ id: testUsingFilter_1.secondItemId, filter: filter })];
+                        case 0: return [4 /*yield*/, facade.getItem({
+                                filter: filter,
+                                id: testItem_1.secondItemId
+                            })];
                         case 1:
                             secondItemResult = _a.sent();
-                            expect(secondItemResult.item).toBe(testUsingFilter_1.secondItem);
+                            expect(secondItemResult.item).toEqual(testItem_1.secondItem);
                             return [2 /*return*/];
                     }
                 });

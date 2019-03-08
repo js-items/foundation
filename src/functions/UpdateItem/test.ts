@@ -1,10 +1,12 @@
 import ItemNotFoundError from "../../errors/ItemNotFoundError";
 import Options from "../../interfaces/Options";
-import testItem, { testId, TestItem } from "../utils/testItem";
-import testUsingFilter, {
+import testItem, {
   firstItem,
-  secondItem
-} from "../utils/testUsingFilter";
+  secondItem,
+  testId,
+  TestItem
+} from "../utils/testItem";
+import testUsingFilter from "../utils/testUsingFilter";
 
 export default ({ facade }: Options<TestItem>) => {
   describe("updateItem", () => {
@@ -38,7 +40,7 @@ export default ({ facade }: Options<TestItem>) => {
           id: firstItem.id,
           patch: { numberProperty: replacedNumberProperty1 }
         });
-        expect(firstItemResult.item.stringProperty).toEqual(
+        expect(firstItemResult.item.numberProperty).toEqual(
           replacedNumberProperty1
         );
       },
@@ -60,55 +62,36 @@ export default ({ facade }: Options<TestItem>) => {
           id: secondItem.id,
           patch: { numberProperty: replacedNumberProperty2 }
         });
-        expect(secondItemResult.item.stringProperty).toEqual(
+
+        expect(secondItemResult.item.numberProperty).toEqual(
           replacedNumberProperty2
         );
       }
     });
 
-    it("throws error when trying to delete an item which does not exist", async () => {
-      expect.assertions(1);
+    it("throws error when item does not exist", async () => {
       try {
-        await facade.deleteItem({ id: testId });
+        await facade.updateItem({ id: "notExistingId", patch: testItem });
       } catch (e) {
         expect(e).toBeInstanceOf(ItemNotFoundError);
       }
     });
 
-    it("deletes an item which exists", async () => {
+    it("should update all item properties", async () => {
+      const patch: Partial<TestItem> = {
+        booleanProperty: false,
+        numberProperty: 78,
+        stringProperty: "test_string_prop_patch"
+      };
       await facade.createItem({ id: testId, item: testItem });
-      await facade.deleteItem({ id: testId });
-      try {
-        await facade.getItem({ id: testId });
-      } catch (e) {
-        expect(e).toBeInstanceOf(ItemNotFoundError);
-      }
+
+      const { item } = await facade.updateItem({ id: testId, patch });
+      const { item: retrievedEntity } = await facade.getItem({ id: testId });
+
+      const expectedItem = { ...testItem, ...patch };
+
+      expect(item).toEqual(expectedItem);
+      expect(retrievedEntity).toEqual(expectedItem);
     });
   });
-
-  it("throws error when item does not exist", async () => {
-    try {
-      await facade.replaceItem({ id: "notExistingId", item: testItem });
-      await facade.getItem({ id: testId });
-    } catch (e) {
-      expect(e).toBeInstanceOf(ItemNotFoundError);
-    }
-  });
-
-  it("replaces item", async () => {
-    const itemReplacement: TestItem = {
-      booleanProperty: true,
-      id: "someOtherId",
-      numberProperty: 17,
-      stringProperty: "foobar"
-    };
-    await facade.createItem({ id: testId, item: testItem });
-    await facade.replaceItem({
-      id: testId,
-      item: itemReplacement
-    });
-    const { item } = await facade.getItem({ id: testId });
-    expect(item).toEqual(itemReplacement);
-  });
-  // tslint:disable-next-line:max-file-line-count
 };

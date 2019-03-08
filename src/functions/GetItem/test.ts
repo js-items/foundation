@@ -1,27 +1,38 @@
 import ItemNotFoundError from "../../errors/ItemNotFoundError";
 import Options from "../../interfaces/Options";
-import testItem, { testId, TestItem } from "../utils/testItem";
-import testUsingFilter, {
+import testItem, {
   firstItem,
   firstItemId,
   secondItem,
   secondItemId,
-} from "../utils/testUsingFilter";
+  testId,
+  TestItem
+} from "../utils/testItem";
+import testUsingFilter from "../utils/testUsingFilter";
 
 export default ({ facade }: Options<TestItem>) => {
   describe("getItem", () => {
     testUsingFilter({
       facade,
       toGetAllItems: async filter => {
-        const firstItemResult = await facade.getItem({ id: firstItemId, filter });
-        expect(firstItemResult.item).toBe(firstItem);
+        const firstItemResult = await facade.getItem({
+          filter,
+          id: firstItemId
+        });
+        expect(firstItemResult.item).toEqual(firstItem);
 
-        const secondItemResult = await facade.getItem({ id: secondItemId, filter });
-        expect(secondItemResult.item).toBe(secondItem);
+        const secondItemResult = await facade.getItem({
+          filter,
+          id: secondItemId
+        });
+        expect(secondItemResult.item).toEqual(secondItem);
       },
       toGetFirstItem: async filter => {
-        const firstItemResult = await facade.getItem({ id: firstItemId, filter });
-        expect(firstItemResult.item).toBe(firstItem);
+        const firstItemResult = await facade.getItem({
+          filter,
+          id: firstItemId
+        });
+        expect(firstItemResult.item).toEqual(firstItem);
       },
       toGetNoItems: async filter => {
         try {
@@ -36,8 +47,11 @@ export default ({ facade }: Options<TestItem>) => {
         }
       },
       toGetSecondItem: async filter => {
-        const secondItemResult = await facade.getItem({ id: secondItemId, filter });
-        expect(secondItemResult.item).toBe(secondItem);
+        const secondItemResult = await facade.getItem({
+          filter,
+          id: secondItemId
+        });
+        expect(secondItemResult.item).toEqual(secondItem);
       }
     });
 
@@ -53,7 +67,7 @@ export default ({ facade }: Options<TestItem>) => {
     it("gets an item which exists", async () => {
       await facade.createItem({ id: testId, item: testItem });
       const { item } = await facade.getItem({ id: testId });
-     
+
       expect(item).toEqual(testItem);
     });
   });

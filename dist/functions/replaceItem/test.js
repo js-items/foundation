@@ -59,7 +59,7 @@ var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var ItemNotFoundError_1 = __importDefault(require("../../errors/ItemNotFoundError"));
 var testItem_1 = __importStar(require("../utils/testItem"));
-var testUsingFilter_1 = __importStar(require("../utils/testUsingFilter"));
+var testUsingFilter_1 = __importDefault(require("../utils/testUsingFilter"));
 exports.default = (function (_a) {
     var facade = _a.facade;
     describe("replaceItem", function () {
@@ -70,19 +70,19 @@ exports.default = (function (_a) {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
-                            firstItemReplacement = __assign({}, testUsingFilter_1.firstItem, { numberProperty: 77 });
+                            firstItemReplacement = __assign({}, testItem_1.firstItem, { numberProperty: 77 });
                             return [4 /*yield*/, facade.replaceItem({
                                     filter: filter,
-                                    id: testUsingFilter_1.firstItem.id,
+                                    id: testItem_1.firstItem.id,
                                     item: firstItemReplacement
                                 })];
                         case 1:
                             firstItemResult = _a.sent();
                             expect(firstItemResult.item).toEqual(firstItemReplacement);
-                            secondItemReplacement = __assign({}, testUsingFilter_1.secondItem, { numberProperty: 99 });
+                            secondItemReplacement = __assign({}, testItem_1.secondItem, { numberProperty: 99 });
                             return [4 /*yield*/, facade.replaceItem({
                                     filter: filter,
-                                    id: testUsingFilter_1.secondItem.id,
+                                    id: testItem_1.secondItem.id,
                                     item: secondItemReplacement
                                 })];
                         case 2:
@@ -97,10 +97,10 @@ exports.default = (function (_a) {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
-                            firstItemReplacement = __assign({}, testUsingFilter_1.firstItem, { numberProperty: 77 });
+                            firstItemReplacement = __assign({}, testItem_1.firstItem, { numberProperty: 77 });
                             return [4 /*yield*/, facade.replaceItem({
                                     filter: filter,
-                                    id: testUsingFilter_1.firstItem.id,
+                                    id: testItem_1.firstItem.id,
                                     item: firstItemReplacement
                                 })];
                         case 1:
@@ -116,10 +116,10 @@ exports.default = (function (_a) {
                     switch (_a.label) {
                         case 0:
                             _a.trys.push([0, 2, , 3]);
-                            secondItemReplacement = __assign({}, testUsingFilter_1.secondItem, { numberProperty: 99 });
+                            secondItemReplacement = __assign({}, testItem_1.secondItem, { numberProperty: 99 });
                             return [4 /*yield*/, facade.replaceItem({
                                     filter: filter,
-                                    id: testUsingFilter_1.secondItem.id,
+                                    id: testItem_1.secondItem.id,
                                     item: secondItemReplacement
                                 })];
                         case 1:
@@ -138,10 +138,10 @@ exports.default = (function (_a) {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
-                            secondItemReplacement = __assign({}, testUsingFilter_1.secondItem, { numberProperty: 99 });
+                            secondItemReplacement = __assign({}, testItem_1.secondItem, { numberProperty: 99 });
                             return [4 /*yield*/, facade.replaceItem({
                                     filter: filter,
-                                    id: testUsingFilter_1.secondItem.id,
+                                    id: testItem_1.secondItem.id,
                                     item: secondItemReplacement
                                 })];
                         case 1:
@@ -152,55 +152,9 @@ exports.default = (function (_a) {
                 });
             }); }
         });
-        it("throws error when trying to delete an item which does not exist", function () { return __awaiter(_this, void 0, void 0, function () {
-            var e_2;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        expect.assertions(1);
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 3, , 4]);
-                        return [4 /*yield*/, facade.deleteItem({ id: testItem_1.testId })];
-                    case 2:
-                        _a.sent();
-                        return [3 /*break*/, 4];
-                    case 3:
-                        e_2 = _a.sent();
-                        expect(e_2).toBeInstanceOf(ItemNotFoundError_1.default);
-                        return [3 /*break*/, 4];
-                    case 4: return [2 /*return*/];
-                }
-            });
-        }); });
-        it("deletes an item which exists", function () { return __awaiter(_this, void 0, void 0, function () {
-            var e_3;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, facade.createItem({ id: testItem_1.testId, item: testItem_1.default })];
-                    case 1:
-                        _a.sent();
-                        return [4 /*yield*/, facade.deleteItem({ id: testItem_1.testId })];
-                    case 2:
-                        _a.sent();
-                        _a.label = 3;
-                    case 3:
-                        _a.trys.push([3, 5, , 6]);
-                        return [4 /*yield*/, facade.getItem({ id: testItem_1.testId })];
-                    case 4:
-                        _a.sent();
-                        return [3 /*break*/, 6];
-                    case 5:
-                        e_3 = _a.sent();
-                        expect(e_3).toBeInstanceOf(ItemNotFoundError_1.default);
-                        return [3 /*break*/, 6];
-                    case 6: return [2 /*return*/];
-                }
-            });
-        }); });
     });
     it("throws error when item does not exist", function () { return __awaiter(_this, void 0, void 0, function () {
-        var e_4;
+        var e_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -213,21 +167,21 @@ exports.default = (function (_a) {
                     _a.sent();
                     return [3 /*break*/, 4];
                 case 3:
-                    e_4 = _a.sent();
-                    expect(e_4).toBeInstanceOf(ItemNotFoundError_1.default);
+                    e_2 = _a.sent();
+                    expect(e_2).toBeInstanceOf(ItemNotFoundError_1.default);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
         });
     }); });
     it("replaces item", function () { return __awaiter(_this, void 0, void 0, function () {
-        var itemReplacement, item;
+        var itemReplacement, replacedItem, item;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     itemReplacement = {
                         booleanProperty: true,
-                        id: "someOtherId",
+                        id: testItem_1.testId,
                         numberProperty: 17,
                         stringProperty: "foobar"
                     };
@@ -239,11 +193,12 @@ exports.default = (function (_a) {
                             item: itemReplacement
                         })];
                 case 2:
-                    _a.sent();
+                    replacedItem = (_a.sent()).item;
                     return [4 /*yield*/, facade.getItem({ id: testItem_1.testId })];
                 case 3:
                     item = (_a.sent()).item;
                     expect(item).toEqual(itemReplacement);
+                    expect(replacedItem).toEqual(itemReplacement);
                     return [2 /*return*/];
             }
         });

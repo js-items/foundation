@@ -197,7 +197,7 @@ exports.default = (function (_a) {
             }
         });
     }); });
-    it("should return no entities when before is secondCursor", function () { return __awaiter(_this, void 0, void 0, function () {
+    it("should return first entity when before is secondCursor", function () { return __awaiter(_this, void 0, void 0, function () {
         var pagination, result;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -208,12 +208,12 @@ exports.default = (function (_a) {
                     result = _a.sent();
                     expect(result).toEqual({
                         cursor: {
-                            after: secondCursor,
-                            before: secondCursor,
-                            hasAfter: false,
-                            hasBefore: true
+                            after: firstCursor,
+                            before: firstCursor,
+                            hasAfter: true,
+                            hasBefore: false
                         },
-                        items: [firstCursor]
+                        items: [firstItem]
                     });
                     return [2 /*return*/];
             }

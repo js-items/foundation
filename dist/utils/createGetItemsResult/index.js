@@ -12,7 +12,9 @@ exports.default = (function (_a) {
     var cursor = isBackward ? before : after;
     var isStart = cursor === undefined;
     var hasBefore = (isBackward && !isEnd) || (isForward && !isStart);
-    var hasAfter = (isForward && !isEnd) || (isBackward && !isStart);
+    var hasAfter = (isForward && !isEnd) ||
+        (cursor === undefined && !isEnd) ||
+        (isBackward && !isStart);
     var cursorResults = createCursorsFromItems_1.default({
         cursor: cursor,
         items: items,

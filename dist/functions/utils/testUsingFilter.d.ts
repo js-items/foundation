@@ -9,19 +9,5 @@ interface Options {
     readonly toGetSecondItem: FilterAssertion;
     readonly toGetNoItems: FilterAssertion;
 }
-export declare const firstItemId = "id1";
-export declare const secondItemId = "id2";
-export declare const firstItem: {
-    id: string;
-    numberProperty: number;
-    stringProperty: string;
-    booleanProperty: boolean;
-};
-export declare const secondItem: {
-    id: string;
-    numberProperty: number;
-    stringProperty: string;
-    booleanProperty: boolean;
-};
 declare const _default: ({ facade, toGetAllItems, toGetFirstItem, toGetSecondItem, toGetNoItems }: Options) => void;
 export default _default;

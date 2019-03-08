@@ -1,9 +1,6 @@
 import Options from "../../../interfaces/Options";
-import { TestItem } from "../../utils/testItem";
-import testUsingFilter, {
-  firstItem,
-  secondItem
-} from "../../utils/testUsingFilter";
+import { firstItem, secondItem, TestItem } from "../../utils/testItem";
+import testUsingFilter from "../../utils/testUsingFilter";
 
 export default ({ facade }: Options<TestItem>) => {
   testUsingFilter({

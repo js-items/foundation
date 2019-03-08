@@ -1,10 +1,12 @@
 import ItemNotFoundError from "../../errors/ItemNotFoundError";
 import Options from "../../interfaces/Options";
-import testItem, { testId, TestItem } from "../utils/testItem";
-import testUsingFilter, {
+import testItem, {
   firstItemId,
-  secondItemId
-} from "../utils/testUsingFilter";
+  secondItemId,
+  testId,
+  TestItem
+} from "../utils/testItem";
+import testUsingFilter from "../utils/testUsingFilter";
 
 export default ({ facade }: Options<TestItem>) => {
   describe("deleteItem", () => {

@@ -10,12 +10,18 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var testItem_1 = __importDefault(require("../../functions/utils/testItem"));
-var testUsingFilter_1 = require("../../functions/utils/testUsingFilter");
+var testItem_1 = __importStar(require("../../functions/utils/testItem"));
 var Cursor_1 = require("../../interfaces/Cursor");
 var SortOrder_1 = require("../../interfaces/SortOrder");
 var index_1 = __importDefault(require("./index"));
@@ -37,7 +43,7 @@ describe("createCursorsFromEntities", function () {
         });
     });
     it("return correct cursors when there is one item", function () {
-        var items = [testUsingFilter_1.firstItem];
+        var items = [testItem_1.firstItem];
         var cursor = Cursor_1.start;
         var result = index_1.default({ cursor: cursor, items: items, sort: sort });
         expect(result).toEqual({

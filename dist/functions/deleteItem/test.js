@@ -48,7 +48,7 @@ var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var ItemNotFoundError_1 = __importDefault(require("../../errors/ItemNotFoundError"));
 var testItem_1 = __importStar(require("../utils/testItem"));
-var testUsingFilter_1 = __importStar(require("../utils/testUsingFilter"));
+var testUsingFilter_1 = __importDefault(require("../utils/testUsingFilter"));
 exports.default = (function (_a) {
     var facade = _a.facade;
     describe("deleteItem", function () {
@@ -58,16 +58,16 @@ exports.default = (function (_a) {
                 var e_1, e_2;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, facade.deleteItem({ id: testUsingFilter_1.firstItemId, filter: filter })];
+                        case 0: return [4 /*yield*/, facade.deleteItem({ id: testItem_1.firstItemId, filter: filter })];
                         case 1:
                             _a.sent();
-                            return [4 /*yield*/, facade.deleteItem({ id: testUsingFilter_1.secondItemId, filter: filter })];
+                            return [4 /*yield*/, facade.deleteItem({ id: testItem_1.secondItemId, filter: filter })];
                         case 2:
                             _a.sent();
                             _a.label = 3;
                         case 3:
                             _a.trys.push([3, 5, , 6]);
-                            return [4 /*yield*/, facade.getItem({ id: testUsingFilter_1.firstItemId })];
+                            return [4 /*yield*/, facade.getItem({ id: testItem_1.firstItemId })];
                         case 4:
                             _a.sent();
                             return [3 /*break*/, 6];
@@ -77,7 +77,7 @@ exports.default = (function (_a) {
                             return [3 /*break*/, 6];
                         case 6:
                             _a.trys.push([6, 8, , 9]);
-                            return [4 /*yield*/, facade.getItem({ id: testUsingFilter_1.secondItemId })];
+                            return [4 /*yield*/, facade.getItem({ id: testItem_1.secondItemId })];
                         case 7:
                             _a.sent();
                             return [3 /*break*/, 9];
@@ -93,13 +93,13 @@ exports.default = (function (_a) {
                 var e_3;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, facade.deleteItem({ id: testUsingFilter_1.firstItemId, filter: filter })];
+                        case 0: return [4 /*yield*/, facade.deleteItem({ id: testItem_1.firstItemId, filter: filter })];
                         case 1:
                             _a.sent();
                             _a.label = 2;
                         case 2:
                             _a.trys.push([2, 4, , 5]);
-                            return [4 /*yield*/, facade.getItem({ id: testUsingFilter_1.firstItemId })];
+                            return [4 /*yield*/, facade.getItem({ id: testItem_1.firstItemId })];
                         case 3:
                             _a.sent();
                             return [3 /*break*/, 5];
@@ -117,7 +117,7 @@ exports.default = (function (_a) {
                     switch (_a.label) {
                         case 0:
                             _a.trys.push([0, 2, , 3]);
-                            return [4 /*yield*/, facade.deleteItem({ id: testUsingFilter_1.secondItemId, filter: filter })];
+                            return [4 /*yield*/, facade.deleteItem({ id: testItem_1.secondItemId, filter: filter })];
                         case 1:
                             _a.sent();
                             return [3 /*break*/, 3];
@@ -133,13 +133,13 @@ exports.default = (function (_a) {
                 var e_5;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, facade.deleteItem({ id: testUsingFilter_1.secondItemId, filter: filter })];
+                        case 0: return [4 /*yield*/, facade.deleteItem({ id: testItem_1.secondItemId, filter: filter })];
                         case 1:
                             _a.sent();
                             _a.label = 2;
                         case 2:
                             _a.trys.push([2, 4, , 5]);
-                            return [4 /*yield*/, facade.getItem({ id: testUsingFilter_1.secondItemId })];
+                            return [4 /*yield*/, facade.getItem({ id: testItem_1.secondItemId })];
                         case 3:
                             _a.sent();
                             return [3 /*break*/, 5];

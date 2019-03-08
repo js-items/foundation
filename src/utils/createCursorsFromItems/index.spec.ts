@@ -1,5 +1,4 @@
-import testItem, { TestItem } from "../../functions/utils/testItem";
-import { firstItem } from "../../functions/utils/testUsingFilter";
+import testItem, { firstItem, TestItem } from "../../functions/utils/testItem";
 import { start } from "../../interfaces/Cursor";
 import Sort from "../../interfaces/Sort";
 import { asc } from "../../interfaces/SortOrder";

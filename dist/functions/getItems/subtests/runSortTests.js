@@ -163,25 +163,6 @@ exports.default = (function (_a) {
                 }
             });
         }); });
-        it("should sort by two properties when ascending first and descending second", function () { return __awaiter(_this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, facade.createItem({ id: firstId, item: firstItem })];
-                    case 1:
-                        _a.sent();
-                        return [4 /*yield*/, facade.createItem({ id: secondId, item: secondItem })];
-                    case 2:
-                        _a.sent();
-                        return [4 /*yield*/, assertSort([firstItem, secondItem], {
-                                numberProperty: SortOrder_1.desc,
-                                stringProperty: SortOrder_1.asc
-                            })];
-                    case 3:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        }); });
         it("should sort by two properties when descending first and ascending second", function () { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -191,9 +172,28 @@ exports.default = (function (_a) {
                         return [4 /*yield*/, facade.createItem({ id: secondId, item: secondItem })];
                     case 2:
                         _a.sent();
+                        return [4 /*yield*/, assertSort([firstItem, secondItem], {
+                                stringProperty: SortOrder_1.asc,
+                                numberProperty: SortOrder_1.desc
+                            })];
+                    case 3:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        }); });
+        it("should sort by two properties when ascending first and descending second", function () { return __awaiter(_this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, facade.createItem({ id: firstId, item: firstItem })];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, facade.createItem({ id: secondId, item: secondItem })];
+                    case 2:
+                        _a.sent();
                         return [4 /*yield*/, assertSort([secondItem, firstItem], {
-                                numberProperty: SortOrder_1.asc,
-                                stringProperty: SortOrder_1.desc
+                                stringProperty: SortOrder_1.desc,
+                                numberProperty: SortOrder_1.asc
                             })];
                     case 3:
                         _a.sent();

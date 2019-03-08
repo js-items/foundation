@@ -103,19 +103,19 @@ export default ({ facade }: Options<TestItem>) => {
     });
   });
 
-  it("should return no entities when before is secondCursor", async () => {
+  it("should return first entity when before is secondCursor", async () => {
     const pagination = { ...basePagination, before: secondCursor };
 
     const result = await facade.getItems({ pagination, sort });
 
     expect(result).toEqual({
       cursor: {
-        after: secondCursor,
-        before: secondCursor,
-        hasAfter: false,
-        hasBefore: true
+        after: firstCursor,
+        before: firstCursor,
+        hasAfter: true,
+        hasBefore: false
       },
-      items: [firstCursor]
+      items: [firstItem]
     });
   });
 // tslint:disable-next-line:max-file-line-count

@@ -34,16 +34,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-var testUsingFilter_1 = __importStar(require("../../utils/testUsingFilter"));
+var testItem_1 = require("../../utils/testItem");
+var testUsingFilter_1 = __importDefault(require("../../utils/testUsingFilter"));
 exports.default = (function (_a) {
     var facade = _a.facade;
     testUsingFilter_1.default({
@@ -55,7 +52,7 @@ exports.default = (function (_a) {
                     case 0: return [4 /*yield*/, facade.getItems({ filter: filter })];
                     case 1:
                         items = (_a.sent()).items;
-                        expect(items).toEqual([testUsingFilter_1.firstItem, testUsingFilter_1.secondItem]);
+                        expect(items).toEqual([testItem_1.firstItem, testItem_1.secondItem]);
                         return [2 /*return*/];
                 }
             });
@@ -67,7 +64,7 @@ exports.default = (function (_a) {
                     case 0: return [4 /*yield*/, facade.getItems({ filter: filter })];
                     case 1:
                         items = (_a.sent()).items;
-                        expect(items).toEqual([testUsingFilter_1.firstItem]);
+                        expect(items).toEqual([testItem_1.firstItem]);
                         return [2 /*return*/];
                 }
             });
@@ -91,7 +88,7 @@ exports.default = (function (_a) {
                     case 0: return [4 /*yield*/, facade.getItems({ filter: filter })];
                     case 1:
                         items = (_a.sent()).items;
-                        expect(items).toEqual([testUsingFilter_1.secondItem]);
+                        expect(items).toEqual([testItem_1.secondItem]);
                         return [2 /*return*/];
                 }
             });

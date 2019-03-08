@@ -1,11 +1,11 @@
 import ItemNotFoundError from "../../errors/ItemNotFoundError";
 import Options from "../../interfaces/Options";
-import { TestItem } from "../utils/testItem";
-import testUsingFilter, {
-  firstItem,
+import {
   secondItem,
-  secondItemId
-} from "../utils/testUsingFilter";
+  secondItemId,
+  TestItem
+} from "../utils/testItem";
+import testUsingFilter from "../utils/testUsingFilter";
 
 export default ({ facade }: Options<TestItem>) => {
   describe("deleteItems", () => {
@@ -21,9 +21,10 @@ export default ({ facade }: Options<TestItem>) => {
         expect(items).toEqual([]);
       },
       toGetFirstItem: async filter => {
+        // tslint:disable-next-line:no-console
         await facade.deleteItems({ filter });
 
-        const { items } = await facade.getItems({ filter });
+        const { items } = await facade.getItems({});
 
         expect(items).toEqual([secondItem]);
       },
@@ -32,7 +33,7 @@ export default ({ facade }: Options<TestItem>) => {
 
         const { items } = await facade.getItems({ filter });
 
-        expect(items).toEqual([firstItem, secondItem]);
+        expect(items).toEqual([]);
       },
       toGetSecondItem: async filter => {
         await facade.deleteItem({ id: secondItemId, filter });

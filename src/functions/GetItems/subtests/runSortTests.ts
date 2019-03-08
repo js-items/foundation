@@ -1,3 +1,4 @@
+// tslint:disable:object-literal-sort-keys
 import Options from "../../../interfaces/Options";
 import Sort from "../../../interfaces/Sort";
 import { asc, desc } from "../../../interfaces/SortOrder";
@@ -61,21 +62,21 @@ export default ({ facade }: Options<TestItem>) => {
       await assertSort([secondItem, firstItem], { stringProperty: desc });
     });
 
-    it("should sort by two properties when ascending first and descending second", async () => {
-      await facade.createItem({ id: firstId, item: firstItem });
-      await facade.createItem({ id: secondId, item: secondItem });
-      await assertSort([firstItem, secondItem], {
-        numberProperty: desc,
-        stringProperty: asc
-      });
-    });
-
     it("should sort by two properties when descending first and ascending second", async () => {
       await facade.createItem({ id: firstId, item: firstItem });
       await facade.createItem({ id: secondId, item: secondItem });
+      await assertSort([firstItem, secondItem], {
+        stringProperty: asc,
+        numberProperty: desc
+      });
+    });
+
+    it("should sort by two properties when ascending first and descending second", async () => {
+      await facade.createItem({ id: firstId, item: firstItem });
+      await facade.createItem({ id: secondId, item: secondItem });
       await assertSort([secondItem, firstItem], {
-        numberProperty: asc,
-        stringProperty: desc
+        stringProperty: desc,
+        numberProperty: asc
       });
     });
   });

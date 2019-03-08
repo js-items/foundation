@@ -24,7 +24,10 @@ export default <I extends Item>({
   const cursor = isBackward ? before : after;
   const isStart = cursor === undefined;
   const hasBefore = (isBackward && !isEnd) || (isForward && !isStart);
-  const hasAfter = (isForward && !isEnd) || (isBackward && !isStart);
+  const hasAfter =
+    (isForward && !isEnd) ||
+    (cursor === undefined && !isEnd) ||
+    (isBackward && !isStart);
 
   const cursorResults = createCursorFromItems({
     cursor,
