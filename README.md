@@ -1,5 +1,7 @@
 # foundation
-Provides set of interfaces, utils and tests for concrete implementations of js-items repositories
+[![CircleCI](https://circleci.com/gh/js-items/foundation.svg?style=svg)](https://circleci.com/gh/js-items/foundation)
+
+- Provides set of interfaces, utils and tests for concrete implementations of js-items repositories
 
 ## Installation
 `npm i -D @js-items/foundation`
