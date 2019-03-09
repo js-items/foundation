@@ -1,5 +1,6 @@
 # foundation
 [![CircleCI](https://circleci.com/gh/js-items/foundation.svg?style=svg)](https://circleci.com/gh/js-items/foundation)
+[![codecov](https://codecov.io/gh/js-items/foundation/branch/master/graph/badge.svg)](https://codecov.io/gh/js-items/foundation)
 [![Known Vulnerabilities](https://snyk.io/test/github/js-items/foundation/badge.svg?targetFile=package.json)](https://snyk.io/test/github/js-items/foundation?targetFile=package.json)
 
 - Provides set of interfaces, utils and tests for concrete implementations of js-items repositories
