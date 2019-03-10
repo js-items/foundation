@@ -26,7 +26,7 @@ export default ({ facade }: Options<TestItem>) => {
   };
 
   describe("runSortTests", () => {
-    afterEach(async () => {
+    beforeEach(async () => {
       await facade.deleteItems({
         filter: {}
       });

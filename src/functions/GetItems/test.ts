@@ -5,9 +5,15 @@ import runPaginationTests from "./subtests/runPaginationTests";
 import runSortTests from "./subtests/runSortTests";
 
 export default (options: Options<TestItem>) => {
-  describe("getItems", () => {
+  describe("runFilterTests", () => {
     runFilterTests(options);
-    runPaginationTests(options);
+  });
+
+  describe("runSortTests", () => {
     runSortTests(options);
+  });
+
+  describe("runPaginationTests", () => {
+    runPaginationTests(options);
   });
 };

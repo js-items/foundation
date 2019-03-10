@@ -16,14 +16,11 @@ export default ({ facade }: Options<TestItem>) => {
   const basePagination = { before: undefined, after: undefined, limit: 1 };
 
   beforeEach(async () => {
-    await facade.createItem({ id: firstId, item: firstItem });
-    await facade.createItem({ id: secondId, item: secondItem });
-  });
-
-  afterEach(async () => {
     await facade.deleteItems({
       filter: {}
     });
+    await facade.createItem({ id: firstId, item: firstItem });
+    await facade.createItem({ id: secondId, item: secondItem });
   });
 
   it("return all items", async () => {

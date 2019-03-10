@@ -9,15 +9,15 @@ declare const testItem: TestItem;
 export declare const firstItemId = "id1";
 export declare const secondItemId = "id2";
 export declare const firstItem: {
+    booleanProperty: boolean;
     id: string;
     numberProperty: number;
     stringProperty: string;
-    booleanProperty: boolean;
 };
 export declare const secondItem: {
+    booleanProperty: boolean;
     id: string;
     numberProperty: number;
     stringProperty: string;
-    booleanProperty: boolean;
 };
 export default testItem;

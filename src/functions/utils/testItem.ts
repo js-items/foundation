@@ -19,14 +19,14 @@ export const firstItemId = "id1";
 export const secondItemId = "id2";
 
 export const firstItem = {
-  ...testItem,
+  booleanProperty: false,
   id: firstItemId,
   numberProperty: 1,
   stringProperty: "zebra"
 };
 
 export const secondItem = {
-  ...testItem,
+  booleanProperty: false,
   id: secondItemId,
   numberProperty: 2,
   stringProperty: "slon"

@@ -67,23 +67,16 @@ exports.default = (function (_a) {
     beforeEach(function () { return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, facade.createItem({ id: firstId, item: firstItem })];
-                case 1:
-                    _a.sent();
-                    return [4 /*yield*/, facade.createItem({ id: secondId, item: secondItem })];
-                case 2:
-                    _a.sent();
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    afterEach(function () { return __awaiter(_this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            switch (_a.label) {
                 case 0: return [4 /*yield*/, facade.deleteItems({
                         filter: {}
                     })];
                 case 1:
+                    _a.sent();
+                    return [4 /*yield*/, facade.createItem({ id: firstId, item: firstItem })];
+                case 2:
+                    _a.sent();
+                    return [4 /*yield*/, facade.createItem({ id: secondId, item: secondItem })];
+                case 3:
                     _a.sent();
                     return [2 /*return*/];
             }
