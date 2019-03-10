@@ -3,14 +3,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// import runFilterTests from "./subtests/runFilterTests";
+var runFilterTests_1 = __importDefault(require("./subtests/runFilterTests"));
 var runPaginationTests_1 = __importDefault(require("./subtests/runPaginationTests"));
-// import runSortTests from "./subtests/runSortTests";
+var runSortTests_1 = __importDefault(require("./subtests/runSortTests"));
 exports.default = (function (options) {
     describe("getItems", function () {
-        // runFilterTests(options);
+        runFilterTests_1.default(options);
         runPaginationTests_1.default(options);
-        // runSortTests(options);
+        runSortTests_1.default(options);
     });
 });
 //# sourceMappingURL=test.js.map
