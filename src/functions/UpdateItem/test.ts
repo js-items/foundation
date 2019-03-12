@@ -86,12 +86,12 @@ export default ({ facade }: Options<TestItem>) => {
       await facade.createItem({ id: testId, item: testItem });
 
       const { item } = await facade.updateItem({ id: testId, patch });
-      const { item: retrievedEntity } = await facade.getItem({ id: testId });
+      const { item: retrievedItem } = await facade.getItem({ id: testId });
 
       const expectedItem = { ...testItem, ...patch };
 
       expect(item).toEqual(expectedItem);
-      expect(retrievedEntity).toEqual(expectedItem);
+      expect(retrievedItem).toEqual(expectedItem);
     });
   });
 };

@@ -66,7 +66,7 @@ export default ({ facade }: Options<TestItem>) => {
     });
   });
 
-  it("should return first entity when after is start cursor", async() => {
+  it("should return first item when after is start cursor", async() => {
     await expectCorrectResult({
       after: start,
       expectedCursor: {
@@ -122,7 +122,7 @@ export default ({ facade }: Options<TestItem>) => {
     });
   });
 
-  it("should return first entity when before is secondCursor", async() => {
+  it("should return first item when before is secondCursor", async() => {
     await expectCorrectResult({
       before: secondCursor,
       expectedCursor: {

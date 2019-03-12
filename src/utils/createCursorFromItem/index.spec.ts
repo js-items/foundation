@@ -1,10 +1,10 @@
 import testItem, { TestItem } from "../../functions/utils/testItem";
 import { asc } from "../../interfaces/SortOrder";
-import createCursorFromEntity from "./index";
+import createCursorFromItem from "./index";
 
-describe("@createCursorFromEntity", () => {
+describe("@createCursorFromItem", () => {
   it("should return the correct cursor", () => {
-    const result = createCursorFromEntity<TestItem>(testItem, { id: asc });
+    const result = createCursorFromItem<TestItem>(testItem, { id: asc });
     expect(result).toBe("eyJpZCI6IjZkYTlkY2U2LWJlNDAtNGZhYy1iZDljLTZhMmYzNDhhMWM4NyJ9");
   });
 });

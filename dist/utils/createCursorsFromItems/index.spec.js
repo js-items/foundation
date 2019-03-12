@@ -10,18 +10,11 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var testItem_1 = __importStar(require("../../functions/utils/testItem"));
+var testItem_1 = __importDefault(require("../../functions/utils/testItem"));
 var Cursor_1 = require("../../interfaces/Cursor");
 var SortOrder_1 = require("../../interfaces/SortOrder");
 var index_1 = __importDefault(require("./index"));
@@ -29,8 +22,8 @@ describe("createCursorsFromEntities", function () {
     var sort = { id: SortOrder_1.asc };
     var firstId = "id1";
     var secondId = "id2";
-    var firstEntity = __assign({}, testItem_1.default, { id: firstId });
-    var secondEntity = __assign({}, testItem_1.default, { id: secondId });
+    var firstItem = __assign({}, testItem_1.default, { id: firstId });
+    var secondItem = __assign({}, testItem_1.default, { id: secondId });
     var firstCursor = "eyJpZCI6ImlkMSJ9";
     var secondCursor = "eyJpZCI6ImlkMiJ9";
     it("return cursor when no items", function () {
@@ -43,7 +36,7 @@ describe("createCursorsFromEntities", function () {
         });
     });
     it("return correct cursors when there is one item", function () {
-        var items = [testItem_1.firstItem];
+        var items = [firstItem];
         var cursor = Cursor_1.start;
         var result = index_1.default({ cursor: cursor, items: items, sort: sort });
         expect(result).toEqual({
@@ -51,8 +44,8 @@ describe("createCursorsFromEntities", function () {
             before: firstCursor
         });
     });
-    it("should return the correct cursors when there are many entities", function () {
-        var items = [firstEntity, secondEntity];
+    it("should return the correct cursors when there are many items", function () {
+        var items = [firstItem, secondItem];
         var cursor = Cursor_1.start;
         var result = index_1.default({ cursor: cursor, items: items, sort: sort });
         expect(result).toEqual({

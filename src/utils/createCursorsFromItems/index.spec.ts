@@ -1,4 +1,4 @@
-import testItem, { firstItem, TestItem } from "../../functions/utils/testItem";
+import testItem, { TestItem } from "../../functions/utils/testItem";
 import { start } from "../../interfaces/Cursor";
 import Sort from "../../interfaces/Sort";
 import { asc } from "../../interfaces/SortOrder";
@@ -8,8 +8,8 @@ describe("createCursorsFromEntities", () => {
   const sort: Sort<TestItem> = { id: asc };
   const firstId = "id1";
   const secondId = "id2";
-  const firstEntity = { ...testItem, id: firstId };
-  const secondEntity = { ...testItem, id: secondId };
+  const firstItem = { ...testItem, id: firstId };
+  const secondItem = { ...testItem, id: secondId };
   const firstCursor = "eyJpZCI6ImlkMSJ9";
   const secondCursor = "eyJpZCI6ImlkMiJ9";
 
@@ -34,8 +34,8 @@ describe("createCursorsFromEntities", () => {
     });
   });
 
-  it("should return the correct cursors when there are many entities", () => {
-    const items = [firstEntity, secondEntity];
+  it("should return the correct cursors when there are many items", () => {
+    const items = [firstItem, secondItem];
     const cursor = start;
     const result = createCursorsFromItems({ cursor, items, sort });
 

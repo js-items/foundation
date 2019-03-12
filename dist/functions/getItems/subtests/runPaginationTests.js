@@ -125,7 +125,7 @@ exports.default = (function (_a) {
             }
         });
     }); });
-    it("should return first entity when after is start cursor", function () { return __awaiter(_this, void 0, void 0, function () {
+    it("should return first item when after is start cursor", function () { return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, expectCorrectResult({
@@ -205,7 +205,7 @@ exports.default = (function (_a) {
             }
         });
     }); });
-    it("should return first entity when before is secondCursor", function () { return __awaiter(_this, void 0, void 0, function () {
+    it("should return first item when before is secondCursor", function () { return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, expectCorrectResult({

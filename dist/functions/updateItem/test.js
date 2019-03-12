@@ -170,7 +170,7 @@ exports.default = (function (_a) {
             });
         }); });
         it("should update all item properties", function () { return __awaiter(_this, void 0, void 0, function () {
-            var patch, item, retrievedEntity, expectedItem;
+            var patch, item, retrievedItem, expectedItem;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -187,10 +187,10 @@ exports.default = (function (_a) {
                         item = (_a.sent()).item;
                         return [4 /*yield*/, facade.getItem({ id: testItem_1.testId })];
                     case 3:
-                        retrievedEntity = (_a.sent()).item;
+                        retrievedItem = (_a.sent()).item;
                         expectedItem = __assign({}, testItem_1.default, patch);
                         expect(item).toEqual(expectedItem);
-                        expect(retrievedEntity).toEqual(expectedItem);
+                        expect(retrievedItem).toEqual(expectedItem);
                         return [2 /*return*/];
                 }
             });
