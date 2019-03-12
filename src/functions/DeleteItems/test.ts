@@ -1,7 +1,7 @@
 import ItemNotFoundError from "../../errors/ItemNotFoundError";
 import Facade from "../../Facade";
 import { Filter, Options } from "../../interfaces";
-import { secondItem, secondItemId, TestItem } from "../utils/testItem";
+import { secondItem, secondItemId, TestItem, firstItem } from "../utils/testItem";
 import testUsingFilter from "../utils/testUsingFilter";
 
 interface ExpectDeleteItemsOptions<T extends TestItem> {
@@ -17,9 +17,7 @@ const expectDeleteItems = async ({
 }: ExpectDeleteItemsOptions<TestItem>) => {
   await facade.deleteItems({ filter });
 
-  const { items } = await facade.getItems({
-    filter
-  });
+  const { items } = await facade.getItems({});
 
   expect(items).toEqual(expectedValue);
 };
@@ -44,7 +42,7 @@ export default ({ facade }: Options<TestItem>) => {
       },
       toGetNoItems: async filter => {
         await expectDeleteItems({
-          expectedValue: [],
+          expectedValue: [firstItem, secondItem],
           facade,
           filter
         });

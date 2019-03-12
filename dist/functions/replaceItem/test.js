@@ -71,7 +71,7 @@ var expectReplaceItem = function (_a) {
                     return [4 /*yield*/, facade.replaceItem({
                             filter: filter,
                             id: id,
-                            item: item
+                            item: replacement
                         })];
                 case 1:
                     result = _b.sent();

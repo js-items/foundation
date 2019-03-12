@@ -51,9 +51,7 @@ var expectDeleteItems = function (_a) {
                 case 0: return [4 /*yield*/, facade.deleteItems({ filter: filter })];
                 case 1:
                     _b.sent();
-                    return [4 /*yield*/, facade.getItems({
-                            filter: filter
-                        })];
+                    return [4 /*yield*/, facade.getItems({})];
                 case 2:
                     items = (_b.sent()).items;
                     expect(items).toEqual(expectedValue);
@@ -99,7 +97,7 @@ exports.default = (function (_a) {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, expectDeleteItems({
-                                expectedValue: [],
+                                expectedValue: [testItem_1.firstItem, testItem_1.secondItem],
                                 facade: facade,
                                 filter: filter
                             })];

@@ -145,11 +145,11 @@ exports.default = (function (_a) {
             }
         });
     }); });
-    it("should return second entity when after is firstCursor", function () { return __awaiter(_this, void 0, void 0, function () {
+    it("should return second item when after is firstCursor", function () { return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, expectCorrectResult({
-                        after: Cursor_1.start,
+                        after: firstCursor,
                         expectedCursor: {
                             after: secondCursor,
                             before: secondCursor,
@@ -185,7 +185,7 @@ exports.default = (function (_a) {
             }
         });
     }); });
-    it("should return no entities when before is firstCursor", function () { return __awaiter(_this, void 0, void 0, function () {
+    it("should return no items when before is firstCursor", function () { return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, expectCorrectResult({

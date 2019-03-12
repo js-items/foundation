@@ -80,9 +80,9 @@ export default ({ facade }: Options<TestItem>) => {
     });
   });
 
-  it("should return second entity when after is firstCursor", async() => {
+  it("should return second item when after is firstCursor", async() => {
     await expectCorrectResult({
-      after: start,
+      after: firstCursor,
       expectedCursor: {
         after: secondCursor,
         before: secondCursor,
@@ -108,7 +108,7 @@ export default ({ facade }: Options<TestItem>) => {
     });
   });
 
-  it("should return no entities when before is firstCursor", async() => {
+  it("should return no items when before is firstCursor", async() => {
     await expectCorrectResult({
       before: firstCursor,
       expectedCursor: {

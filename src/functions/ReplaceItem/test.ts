@@ -26,7 +26,7 @@ const expectReplaceItem = async ({
   const result = await facade.replaceItem({
     filter,
     id,
-    item
+    item: replacement
   });
   expect(result.item).toEqual(replacement);
 };
