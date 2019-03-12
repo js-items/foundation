@@ -1,7 +1,7 @@
 import ItemNotFoundError from "../../errors/ItemNotFoundError";
 import Facade from "../../Facade";
 import { Filter, Options } from "../../interfaces";
-import { secondItem, secondItemId, TestItem, firstItem } from "../utils/testItem";
+import { firstItem, secondItem, secondItemId, TestItem } from "../utils/testItem";
 import testUsingFilter from "../utils/testUsingFilter";
 
 interface ExpectDeleteItemsOptions<T extends TestItem> {
