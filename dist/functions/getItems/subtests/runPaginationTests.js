@@ -54,16 +54,39 @@ var Cursor_1 = require("../../../interfaces/Cursor");
 var SortOrder_1 = require("../../../interfaces/SortOrder");
 var createCursorFromItem_1 = __importDefault(require("../../../utils/createCursorFromItem"));
 var testItem_1 = __importDefault(require("../../utils/testItem"));
+var sort = { id: SortOrder_1.asc };
+var expectCorrectResult = function (_a) {
+    var after = _a.after, before = _a.before, facade = _a.facade, items = _a.items, expectedCursor = _a.expectedCursor;
+    return __awaiter(_this, void 0, void 0, function () {
+        var pagination, result;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    pagination = {
+                        after: after,
+                        before: before,
+                        limit: 1
+                    };
+                    return [4 /*yield*/, facade.getItems({ pagination: pagination, sort: sort })];
+                case 1:
+                    result = _b.sent();
+                    expect(result).toEqual({
+                        cursor: expectedCursor,
+                        items: items
+                    });
+                    return [2 /*return*/];
+            }
+        });
+    });
+};
 exports.default = (function (_a) {
     var facade = _a.facade;
-    var sort = { id: SortOrder_1.asc };
     var firstId = "id1";
     var secondId = "id2";
     var firstItem = __assign({}, testItem_1.default, { id: firstId });
     var secondItem = __assign({}, testItem_1.default, { id: secondId });
     var firstCursor = createCursorFromItem_1.default(firstItem, sort);
     var secondCursor = createCursorFromItem_1.default(secondItem, sort);
-    var basePagination = { before: undefined, after: undefined, limit: 1 };
     beforeEach(function () { return __awaiter(_this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -103,111 +126,101 @@ exports.default = (function (_a) {
         });
     }); });
     it("should return first entity when after is start cursor", function () { return __awaiter(_this, void 0, void 0, function () {
-        var pagination, result;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    pagination = __assign({}, basePagination, { after: Cursor_1.start });
-                    return [4 /*yield*/, facade.getItems({ pagination: pagination, sort: sort })];
-                case 1:
-                    result = _a.sent();
-                    expect(result).toEqual({
-                        cursor: {
+                case 0: return [4 /*yield*/, expectCorrectResult({
+                        after: Cursor_1.start,
+                        expectedCursor: {
                             after: firstCursor,
                             before: firstCursor,
                             hasAfter: true,
                             hasBefore: false
                         },
+                        facade: facade,
                         items: [firstItem]
-                    });
+                    })];
+                case 1:
+                    _a.sent();
                     return [2 /*return*/];
             }
         });
     }); });
     it("should return second entity when after is firstCursor", function () { return __awaiter(_this, void 0, void 0, function () {
-        var pagination, result;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    pagination = __assign({}, basePagination, { after: firstCursor });
-                    return [4 /*yield*/, facade.getItems({ pagination: pagination, sort: sort })];
-                case 1:
-                    result = _a.sent();
-                    expect(result).toEqual({
-                        cursor: {
+                case 0: return [4 /*yield*/, expectCorrectResult({
+                        after: Cursor_1.start,
+                        expectedCursor: {
                             after: secondCursor,
                             before: secondCursor,
                             hasAfter: false,
                             hasBefore: true
                         },
+                        facade: facade,
                         items: [secondItem]
-                    });
+                    })];
+                case 1:
+                    _a.sent();
                     return [2 /*return*/];
             }
         });
     }); });
     it("should return no entities when after is secondCursor", function () { return __awaiter(_this, void 0, void 0, function () {
-        var pagination, result;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    pagination = __assign({}, basePagination, { after: secondCursor });
-                    return [4 /*yield*/, facade.getItems({ pagination: pagination, sort: sort })];
-                case 1:
-                    result = _a.sent();
-                    expect(result).toEqual({
-                        cursor: {
+                case 0: return [4 /*yield*/, expectCorrectResult({
+                        after: secondCursor,
+                        expectedCursor: {
                             after: secondCursor,
                             before: secondCursor,
                             hasAfter: false,
                             hasBefore: true
                         },
+                        facade: facade,
                         items: []
-                    });
+                    })];
+                case 1:
+                    _a.sent();
                     return [2 /*return*/];
             }
         });
     }); });
     it("should return no entities when before is firstCursor", function () { return __awaiter(_this, void 0, void 0, function () {
-        var pagination, result;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    pagination = __assign({}, basePagination, { before: firstCursor });
-                    return [4 /*yield*/, facade.getItems({ pagination: pagination, sort: sort })];
-                case 1:
-                    result = _a.sent();
-                    expect(result).toEqual({
-                        cursor: {
+                case 0: return [4 /*yield*/, expectCorrectResult({
+                        before: firstCursor,
+                        expectedCursor: {
                             after: firstCursor,
                             before: firstCursor,
                             hasAfter: true,
                             hasBefore: false
                         },
+                        facade: facade,
                         items: []
-                    });
+                    })];
+                case 1:
+                    _a.sent();
                     return [2 /*return*/];
             }
         });
     }); });
     it("should return first entity when before is secondCursor", function () { return __awaiter(_this, void 0, void 0, function () {
-        var pagination, result;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    pagination = __assign({}, basePagination, { before: secondCursor });
-                    return [4 /*yield*/, facade.getItems({ pagination: pagination, sort: sort })];
-                case 1:
-                    result = _a.sent();
-                    expect(result).toEqual({
-                        cursor: {
+                case 0: return [4 /*yield*/, expectCorrectResult({
+                        before: secondCursor,
+                        expectedCursor: {
                             after: firstCursor,
                             before: firstCursor,
                             hasAfter: true,
                             hasBefore: false
                         },
+                        facade: facade,
                         items: [firstItem]
-                    });
+                    })];
+                case 1:
+                    _a.sent();
                     return [2 /*return*/];
             }
         });

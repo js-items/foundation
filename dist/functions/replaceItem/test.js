@@ -60,67 +60,81 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var ItemNotFoundError_1 = __importDefault(require("../../errors/ItemNotFoundError"));
 var testItem_1 = __importStar(require("../utils/testItem"));
 var testUsingFilter_1 = __importDefault(require("../utils/testUsingFilter"));
+var expectReplaceItem = function (_a) {
+    var facade = _a.facade, filter = _a.filter, id = _a.id, item = _a.item;
+    return __awaiter(_this, void 0, void 0, function () {
+        var replacement, result;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    replacement = __assign({}, item, { numberProperty: 999 });
+                    return [4 /*yield*/, facade.replaceItem({
+                            filter: filter,
+                            id: id,
+                            item: item
+                        })];
+                case 1:
+                    result = _b.sent();
+                    expect(result.item).toEqual(replacement);
+                    return [2 /*return*/];
+            }
+        });
+    });
+};
 exports.default = (function (_a) {
     var facade = _a.facade;
     describe("replaceItem", function () {
         testUsingFilter_1.default({
             facade: facade,
             toGetAllItems: function (filter) { return __awaiter(_this, void 0, void 0, function () {
-                var firstItemReplacement, firstItemResult, secondItemReplacement, secondItemResult;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0:
-                            firstItemReplacement = __assign({}, testItem_1.firstItem, { numberProperty: 77 });
-                            return [4 /*yield*/, facade.replaceItem({
-                                    filter: filter,
-                                    id: testItem_1.firstItem.id,
-                                    item: firstItemReplacement
-                                })];
+                        case 0: return [4 /*yield*/, expectReplaceItem({
+                                facade: facade,
+                                filter: filter,
+                                id: testItem_1.firstItem.id,
+                                item: testItem_1.firstItem
+                            })];
                         case 1:
-                            firstItemResult = _a.sent();
-                            expect(firstItemResult.item).toEqual(firstItemReplacement);
-                            secondItemReplacement = __assign({}, testItem_1.secondItem, { numberProperty: 99 });
-                            return [4 /*yield*/, facade.replaceItem({
+                            _a.sent();
+                            return [4 /*yield*/, expectReplaceItem({
+                                    facade: facade,
                                     filter: filter,
                                     id: testItem_1.secondItem.id,
-                                    item: secondItemReplacement
+                                    item: testItem_1.secondItem
                                 })];
                         case 2:
-                            secondItemResult = _a.sent();
-                            expect(secondItemResult.item).toEqual(secondItemReplacement);
+                            _a.sent();
                             return [2 /*return*/];
                     }
                 });
             }); },
             toGetFirstItem: function (filter) { return __awaiter(_this, void 0, void 0, function () {
-                var firstItemReplacement, firstItemResult;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0:
-                            firstItemReplacement = __assign({}, testItem_1.firstItem, { numberProperty: 77 });
-                            return [4 /*yield*/, facade.replaceItem({
-                                    filter: filter,
-                                    id: testItem_1.firstItem.id,
-                                    item: firstItemReplacement
-                                })];
+                        case 0: return [4 /*yield*/, expectReplaceItem({
+                                facade: facade,
+                                filter: filter,
+                                id: testItem_1.firstItem.id,
+                                item: testItem_1.firstItem
+                            })];
                         case 1:
-                            firstItemResult = _a.sent();
-                            expect(firstItemResult.item).toEqual(firstItemReplacement);
+                            _a.sent();
                             return [2 /*return*/];
                     }
                 });
             }); },
             toGetNoItems: function (filter) { return __awaiter(_this, void 0, void 0, function () {
-                var secondItemReplacement, e_1;
+                var e_1;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
                             _a.trys.push([0, 2, , 3]);
-                            secondItemReplacement = __assign({}, testItem_1.secondItem, { numberProperty: 99 });
-                            return [4 /*yield*/, facade.replaceItem({
+                            return [4 /*yield*/, expectReplaceItem({
+                                    facade: facade,
                                     filter: filter,
                                     id: testItem_1.secondItem.id,
-                                    item: secondItemReplacement
+                                    item: testItem_1.secondItem
                                 })];
                         case 1:
                             _a.sent();
@@ -134,19 +148,16 @@ exports.default = (function (_a) {
                 });
             }); },
             toGetSecondItem: function (filter) { return __awaiter(_this, void 0, void 0, function () {
-                var secondItemReplacement, secondItemResult;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0:
-                            secondItemReplacement = __assign({}, testItem_1.secondItem, { numberProperty: 99 });
-                            return [4 /*yield*/, facade.replaceItem({
-                                    filter: filter,
-                                    id: testItem_1.secondItem.id,
-                                    item: secondItemReplacement
-                                })];
+                        case 0: return [4 /*yield*/, expectReplaceItem({
+                                facade: facade,
+                                filter: filter,
+                                id: testItem_1.secondItem.id,
+                                item: testItem_1.secondItem
+                            })];
                         case 1:
-                            secondItemResult = _a.sent();
-                            expect(secondItemResult.item).toEqual(secondItemReplacement);
+                            _a.sent();
                             return [2 /*return*/];
                     }
                 });

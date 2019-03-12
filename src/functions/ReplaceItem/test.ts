@@ -1,63 +1,82 @@
 import ItemNotFoundError from "../../errors/ItemNotFoundError";
-import Options from "../../interfaces/Options";
+import Facade from "../../Facade";
+import { Filter, Options } from "../../interfaces";
 import testItem, {
   firstItem,
   secondItem,
   testId,
-  TestItem,
+  TestItem
 } from "../utils/testItem";
 import testUsingFilter from "../utils/testUsingFilter";
+
+interface ExpectReplaceItemOptions<T extends TestItem> {
+  readonly facade: Facade<T>;
+  readonly filter?: Filter<T>;
+  readonly id: string;
+  readonly item: T;
+}
+
+const expectReplaceItem = async ({
+  facade,
+  filter,
+  id,
+  item
+}: ExpectReplaceItemOptions<TestItem>) => {
+  const replacement = { ...item, numberProperty: 999 };
+  const result = await facade.replaceItem({
+    filter,
+    id,
+    item
+  });
+  expect(result.item).toEqual(replacement);
+};
 
 export default ({ facade }: Options<TestItem>) => {
   describe("replaceItem", () => {
     testUsingFilter({
       facade,
       toGetAllItems: async filter => {
-        const firstItemReplacement = { ...firstItem, numberProperty: 77 };
-        const firstItemResult = await facade.replaceItem({
+        await expectReplaceItem({
+          facade,
           filter,
           id: firstItem.id,
-          item: firstItemReplacement
+          item: firstItem
         });
-        expect(firstItemResult.item).toEqual(firstItemReplacement);
 
-        const secondItemReplacement = { ...secondItem, numberProperty: 99 };
-        const secondItemResult = await facade.replaceItem({
+        await expectReplaceItem({
+          facade,
           filter,
           id: secondItem.id,
-          item: secondItemReplacement
+          item: secondItem
         });
-        expect(secondItemResult.item).toEqual(secondItemReplacement);
       },
       toGetFirstItem: async filter => {
-        const firstItemReplacement = { ...firstItem, numberProperty: 77 };
-        const firstItemResult = await facade.replaceItem({
+        await expectReplaceItem({
+          facade,
           filter,
           id: firstItem.id,
-          item: firstItemReplacement
+          item: firstItem
         });
-        expect(firstItemResult.item).toEqual(firstItemReplacement);
       },
       toGetNoItems: async filter => {
         try {
-          const secondItemReplacement = { ...secondItem, numberProperty: 99 };
-          await facade.replaceItem({
+          await expectReplaceItem({
+            facade,
             filter,
             id: secondItem.id,
-            item: secondItemReplacement
+            item: secondItem
           });
         } catch (e) {
           expect(e).toBeInstanceOf(ItemNotFoundError);
         }
       },
       toGetSecondItem: async filter => {
-        const secondItemReplacement = { ...secondItem, numberProperty: 99 };
-        const secondItemResult = await facade.replaceItem({
+        await expectReplaceItem({
+          facade,
           filter,
           id: secondItem.id,
-          item: secondItemReplacement
+          item: secondItem
         });
-        expect(secondItemResult.item).toEqual(secondItemReplacement);
       }
     });
   });

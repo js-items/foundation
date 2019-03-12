@@ -20,62 +20,64 @@ var SortOrder_1 = require("../../interfaces/SortOrder");
 var index_1 = __importDefault(require("./index"));
 describe("createGetItemsResult backward", function () {
     var sort = { id: SortOrder_1.asc };
+    var isEnd = true;
+    var expectCorrectResult = function (_a) {
+        var after = _a.after, items = _a.items, before = _a.before, expectedCursor = _a.expectedCursor;
+        var pagination = {
+            after: after,
+            before: before,
+            limit: 1
+        };
+        var result = index_1.default({ items: items, isEnd: isEnd, pagination: pagination, sort: sort });
+        expect(result).toEqual({
+            cursor: expectedCursor,
+            items: items
+        });
+    };
     var firstId = "test_id_1";
     var firstItem = __assign({}, testItem_1.default, { id: firstId });
     var firstCursor = "eyJpZCI6InRlc3RfaWRfMSJ9";
     var secondCursor = "eyJpZCI6InRlc3RfaWRfMiJ9";
     it("returns correct result when there are no items and no cursors present", function () {
         var items = [];
-        var pagination = {
+        var expectedCursor = {
             after: Cursor_1.start,
             before: Cursor_1.start,
-            limit: 1
+            hasAfter: false,
+            hasBefore: false
         };
-        var isEnd = true;
-        var result = index_1.default({ items: items, isEnd: isEnd, pagination: pagination, sort: sort });
-        expect(result).toEqual({
-            cursor: {
-                after: Cursor_1.start,
-                before: Cursor_1.start,
-                hasAfter: false,
-                hasBefore: false
-            },
+        expectCorrectResult({
+            after: Cursor_1.start,
+            before: Cursor_1.start,
+            expectedCursor: expectedCursor,
             items: items
         });
     });
     it("returns correct result when no items present and cursor is present", function () {
         var items = [];
-        var pagination = {
+        var expectedCursor = {
+            after: firstCursor,
             before: firstCursor,
-            limit: 1
+            hasAfter: true,
+            hasBefore: false
         };
-        var isEnd = true;
-        var result = index_1.default({ items: items, isEnd: isEnd, pagination: pagination, sort: sort });
-        expect(result).toEqual({
-            cursor: {
-                after: firstCursor,
-                before: firstCursor,
-                hasAfter: true,
-                hasBefore: false
-            },
+        expectCorrectResult({
+            before: firstCursor,
+            expectedCursor: expectedCursor,
             items: items
         });
     });
     it("returns correct result when items and cursor is present", function () {
         var items = [firstItem];
-        var pagination = {
-            before: secondCursor,
-            limit: 1
+        var expectedCursor = {
+            after: firstCursor,
+            before: firstCursor,
+            hasAfter: true,
+            hasBefore: false
         };
-        var isEnd = true;
-        var result = index_1.default({ items: items, isEnd: isEnd, pagination: pagination, sort: sort });
-        expect(result).toEqual({
-            cursor: {
-                after: firstCursor,
-                before: firstCursor,
-                hasAfter: true,
-                hasBefore: false
-            },
+        expectCorrectResult({
+            before: secondCursor,
+            expectedCursor: expectedCursor,
             items: items
         });
     });

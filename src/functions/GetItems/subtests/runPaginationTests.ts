@@ -1,21 +1,51 @@
+import Facade from "../../../Facade";
+import { Cursor, CursorResult, Pagination, Sort } from "../../../interfaces";
 import { start } from "../../../interfaces/Cursor";
 import Options from "../../../interfaces/Options";
-import Sort from "../../../interfaces/Sort";
 import { asc } from "../../../interfaces/SortOrder";
 import createCursorFromItem from "../../../utils/createCursorFromItem";
 import testItem, { TestItem } from "../../utils/testItem";
 
+interface ExpectCorrectResultOptions<T extends TestItem> {
+  readonly facade: Facade<T>;
+  readonly items: T[];
+  readonly after?: Cursor;
+  readonly before?: Cursor;
+  readonly expectedCursor: CursorResult;
+}
+
+const sort: Sort<TestItem> = { id: asc };
+
+const expectCorrectResult = async ({
+  after,
+  before,
+  facade,
+  items,
+  expectedCursor
+}: ExpectCorrectResultOptions<TestItem>) => {
+  const pagination: Pagination = {
+    after,
+    before,
+    limit: 1
+  };
+
+  const result = await facade.getItems({ pagination, sort });
+
+  expect(result).toEqual({
+    cursor: expectedCursor,
+    items
+  });
+};
+
 export default ({ facade }: Options<TestItem>) => {
-  const sort: Sort<TestItem> = { id: asc };
   const firstId = "id1";
   const secondId = "id2";
   const firstItem = { ...testItem, id: firstId };
   const secondItem = { ...testItem, id: secondId };
   const firstCursor = createCursorFromItem(firstItem, sort);
   const secondCursor = createCursorFromItem(secondItem, sort);
-  const basePagination = { before: undefined, after: undefined, limit: 1 };
 
-  beforeEach(async () => {
+  beforeEach(async() => {
     await facade.deleteItems({
       filter: {}
     });
@@ -23,7 +53,7 @@ export default ({ facade }: Options<TestItem>) => {
     await facade.createItem({ id: secondId, item: secondItem });
   });
 
-  it("return all items", async () => {
+  it("return all items", async() => {
     const result = await facade.getItems({});
     expect(result).toEqual({
       cursor: {
@@ -36,84 +66,74 @@ export default ({ facade }: Options<TestItem>) => {
     });
   });
 
-  it("should return first entity when after is start cursor", async () => {
-    const pagination = { ...basePagination, after: start };
-
-    const result = await facade.getItems({ pagination, sort });
-
-    expect(result).toEqual({
-      cursor: {
+  it("should return first entity when after is start cursor", async() => {
+    await expectCorrectResult({
+      after: start,
+      expectedCursor: {
         after: firstCursor,
         before: firstCursor,
         hasAfter: true,
         hasBefore: false
       },
+      facade,
       items: [firstItem]
     });
   });
 
-  it("should return second entity when after is firstCursor", async () => {
-    const pagination = { ...basePagination, after: firstCursor };
-
-    const result = await facade.getItems({ pagination, sort });
-
-    expect(result).toEqual({
-      cursor: {
+  it("should return second entity when after is firstCursor", async() => {
+    await expectCorrectResult({
+      after: start,
+      expectedCursor: {
         after: secondCursor,
         before: secondCursor,
         hasAfter: false,
         hasBefore: true
       },
+      facade,
       items: [secondItem]
     });
   });
 
-  it("should return no entities when after is secondCursor", async () => {
-    const pagination = { ...basePagination, after: secondCursor };
-
-    const result = await facade.getItems({ pagination, sort });
-
-    expect(result).toEqual({
-      cursor: {
+  it("should return no entities when after is secondCursor", async() => {
+    await expectCorrectResult({
+      after: secondCursor,
+      expectedCursor: {
         after: secondCursor,
         before: secondCursor,
         hasAfter: false,
         hasBefore: true
       },
+      facade,
       items: []
     });
   });
 
-  it("should return no entities when before is firstCursor", async () => {
-    const pagination = { ...basePagination, before: firstCursor };
-
-    const result = await facade.getItems({ pagination, sort });
-
-    expect(result).toEqual({
-      cursor: {
+  it("should return no entities when before is firstCursor", async() => {
+    await expectCorrectResult({
+      before: firstCursor,
+      expectedCursor: {
         after: firstCursor,
         before: firstCursor,
         hasAfter: true,
         hasBefore: false
       },
+      facade,
       items: []
     });
   });
 
-  it("should return first entity when before is secondCursor", async () => {
-    const pagination = { ...basePagination, before: secondCursor };
-
-    const result = await facade.getItems({ pagination, sort });
-
-    expect(result).toEqual({
-      cursor: {
+  it("should return first entity when before is secondCursor", async() => {
+    await expectCorrectResult({
+      before: secondCursor,
+      expectedCursor: {
         after: firstCursor,
         before: firstCursor,
         hasAfter: true,
         hasBefore: false
       },
+      facade,
       items: [firstItem]
     });
   });
-// tslint:disable-next-line:max-file-line-count
+  // tslint:disable-next-line:max-file-line-count
 };

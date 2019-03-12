@@ -1,42 +1,56 @@
 import ItemNotFoundError from "../../errors/ItemNotFoundError";
-import Options from "../../interfaces/Options";
-import {
-  secondItem,
-  secondItemId,
-  TestItem
-} from "../utils/testItem";
+import Facade from "../../Facade";
+import { Filter, Options } from "../../interfaces";
+import { secondItem, secondItemId, TestItem } from "../utils/testItem";
 import testUsingFilter from "../utils/testUsingFilter";
+
+interface ExpectDeleteItemsOptions<T extends TestItem> {
+  readonly facade: Facade<T>;
+  readonly filter?: Filter<T>;
+  readonly expectedValue: T[];
+}
+
+const expectDeleteItems = async ({
+  facade,
+  filter,
+  expectedValue
+}: ExpectDeleteItemsOptions<TestItem>) => {
+  await facade.deleteItems({ filter });
+
+  const { items } = await facade.getItems({
+    filter
+  });
+
+  expect(items).toEqual(expectedValue);
+};
 
 export default ({ facade }: Options<TestItem>) => {
   describe("deleteItems", () => {
     testUsingFilter({
       facade,
       toGetAllItems: async filter => {
-        await facade.deleteItems({ filter });
-
-        const { items } = await facade.getItems({
+        await expectDeleteItems({
+          expectedValue: [],
+          facade,
           filter
         });
-
-        expect(items).toEqual([]);
       },
       toGetFirstItem: async filter => {
-        // tslint:disable-next-line:no-console
-        await facade.deleteItems({ filter });
-
-        const { items } = await facade.getItems({});
-
-        expect(items).toEqual([secondItem]);
+        await expectDeleteItems({
+          expectedValue: [secondItem],
+          facade,
+          filter
+        });
       },
       toGetNoItems: async filter => {
-        await facade.deleteItems({ filter });
-
-        const { items } = await facade.getItems({ filter });
-
-        expect(items).toEqual([]);
+        await expectDeleteItems({
+          expectedValue: [],
+          facade,
+          filter
+        });
       },
       toGetSecondItem: async filter => {
-        await facade.deleteItem({ id: secondItemId, filter });
+        await facade.deleteItems({ filter });
         try {
           await facade.getItem({ id: secondItemId });
         } catch (e) {

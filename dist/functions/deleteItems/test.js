@@ -42,57 +42,69 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var ItemNotFoundError_1 = __importDefault(require("../../errors/ItemNotFoundError"));
 var testItem_1 = require("../utils/testItem");
 var testUsingFilter_1 = __importDefault(require("../utils/testUsingFilter"));
+var expectDeleteItems = function (_a) {
+    var facade = _a.facade, filter = _a.filter, expectedValue = _a.expectedValue;
+    return __awaiter(_this, void 0, void 0, function () {
+        var items;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0: return [4 /*yield*/, facade.deleteItems({ filter: filter })];
+                case 1:
+                    _b.sent();
+                    return [4 /*yield*/, facade.getItems({
+                            filter: filter
+                        })];
+                case 2:
+                    items = (_b.sent()).items;
+                    expect(items).toEqual(expectedValue);
+                    return [2 /*return*/];
+            }
+        });
+    });
+};
 exports.default = (function (_a) {
     var facade = _a.facade;
     describe("deleteItems", function () {
         testUsingFilter_1.default({
             facade: facade,
             toGetAllItems: function (filter) { return __awaiter(_this, void 0, void 0, function () {
-                var items;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, facade.deleteItems({ filter: filter })];
+                        case 0: return [4 /*yield*/, expectDeleteItems({
+                                expectedValue: [],
+                                facade: facade,
+                                filter: filter
+                            })];
                         case 1:
                             _a.sent();
-                            return [4 /*yield*/, facade.getItems({
-                                    filter: filter
-                                })];
-                        case 2:
-                            items = (_a.sent()).items;
-                            expect(items).toEqual([]);
                             return [2 /*return*/];
                     }
                 });
             }); },
             toGetFirstItem: function (filter) { return __awaiter(_this, void 0, void 0, function () {
-                var items;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: 
-                        // tslint:disable-next-line:no-console
-                        return [4 /*yield*/, facade.deleteItems({ filter: filter })];
+                        case 0: return [4 /*yield*/, expectDeleteItems({
+                                expectedValue: [testItem_1.secondItem],
+                                facade: facade,
+                                filter: filter
+                            })];
                         case 1:
-                            // tslint:disable-next-line:no-console
                             _a.sent();
-                            return [4 /*yield*/, facade.getItems({})];
-                        case 2:
-                            items = (_a.sent()).items;
-                            expect(items).toEqual([testItem_1.secondItem]);
                             return [2 /*return*/];
                     }
                 });
             }); },
             toGetNoItems: function (filter) { return __awaiter(_this, void 0, void 0, function () {
-                var items;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, facade.deleteItems({ filter: filter })];
+                        case 0: return [4 /*yield*/, expectDeleteItems({
+                                expectedValue: [],
+                                facade: facade,
+                                filter: filter
+                            })];
                         case 1:
                             _a.sent();
-                            return [4 /*yield*/, facade.getItems({ filter: filter })];
-                        case 2:
-                            items = (_a.sent()).items;
-                            expect(items).toEqual([]);
                             return [2 /*return*/];
                     }
                 });
@@ -101,7 +113,7 @@ exports.default = (function (_a) {
                 var e_1;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, facade.deleteItem({ id: testItem_1.secondItemId, filter: filter })];
+                        case 0: return [4 /*yield*/, facade.deleteItems({ filter: filter })];
                         case 1:
                             _a.sent();
                             _a.label = 2;
