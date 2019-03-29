@@ -12,7 +12,7 @@ export interface ComparisonFilter<Value> {
     readonly $search?: Value;
 }
 export declare type ItemFilter<I extends Item> = {
-    readonly [P in keyof I]?: I[P] | ComparisonFilter<null | I[P]>;
+    readonly [P in keyof I]?: I[P] | ComparisonFilter<I[P]>;
 };
 export interface LogicalFilter<I extends Item> {
     readonly $and?: Filter<I>[];
