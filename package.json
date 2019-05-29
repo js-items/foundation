@@ -34,7 +34,7 @@
     "ts-jest": "24.0.2",
     "tslint": "5.16.0",
     "tslint-config-prettier": "1.18.0",
-    "typescript": "3.4.5"
+    "typescript": "3.5.1"
   },
   "devEngines": {
     "node": "8.x || 9.x || 10.x || 11.x"
