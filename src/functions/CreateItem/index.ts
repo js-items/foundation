@@ -1,7 +1,7 @@
 import Item from '../../interfaces/Item';
 
 export interface Options<I extends Item> {
-  readonly id: string;
+  readonly id?: string;
   readonly item: I;
 }
 

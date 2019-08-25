@@ -48,7 +48,7 @@ var test_6 = __importDefault(require("./functions/GetItems/test"));
 var test_7 = __importDefault(require("./functions/ReplaceItem/test"));
 var test_8 = __importDefault(require("./functions/UpdateItem/test"));
 exports.default = (function (options) {
-    describe("testFacade", function () {
+    describe('testFacade', function () {
         beforeEach(function () { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -59,7 +59,9 @@ exports.default = (function (options) {
                 }
             });
         }); });
-        test_1.default(options);
+        if (options.facade.countItems !== undefined) {
+            test_1.default(options);
+        }
         test_2.default(options);
         test_3.default(options);
         test_4.default(options);
