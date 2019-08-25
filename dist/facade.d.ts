@@ -8,7 +8,7 @@ import ReplaceItem from "./functions/ReplaceItem";
 import UpdateItem from "./functions/UpdateItem";
 import Item from "./interfaces/Item";
 export default interface Facade<I extends Item> {
-    readonly countItems: CountItems<I>;
+    readonly countItems?: CountItems<I>;
     readonly createItem: CreateItem<I>;
     readonly getItem: GetItem<I>;
     readonly getItems: GetItems<I>;

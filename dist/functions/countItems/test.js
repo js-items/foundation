@@ -42,62 +42,64 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var testUsingFilter_1 = __importDefault(require("../utils/testUsingFilter"));
 exports.default = (function (_a) {
     var facade = _a.facade;
-    describe("countItems", function () {
-        testUsingFilter_1.default({
-            facade: facade,
-            toGetAllItems: function (filter) { return __awaiter(_this, void 0, void 0, function () {
-                var count, expectedCount;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, facade.countItems({ filter: filter })];
-                        case 1:
-                            count = (_a.sent()).count;
-                            expectedCount = 2;
-                            expect(count).toBe(expectedCount);
-                            return [2 /*return*/];
-                    }
-                });
-            }); },
-            toGetFirstItem: function (filter) { return __awaiter(_this, void 0, void 0, function () {
-                var count, expectedCount;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, facade.countItems({ filter: filter })];
-                        case 1:
-                            count = (_a.sent()).count;
-                            expectedCount = 1;
-                            expect(count).toBe(expectedCount);
-                            return [2 /*return*/];
-                    }
-                });
-            }); },
-            toGetNoItems: function (filter) { return __awaiter(_this, void 0, void 0, function () {
-                var count, expectedCount;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, facade.countItems({ filter: filter })];
-                        case 1:
-                            count = (_a.sent()).count;
-                            expectedCount = 0;
-                            expect(count).toBe(expectedCount);
-                            return [2 /*return*/];
-                    }
-                });
-            }); },
-            toGetSecondItem: function (filter) { return __awaiter(_this, void 0, void 0, function () {
-                var count, expectedCount;
-                return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, facade.countItems({ filter: filter })];
-                        case 1:
-                            count = (_a.sent()).count;
-                            expectedCount = 1;
-                            expect(count).toBe(expectedCount);
-                            return [2 /*return*/];
-                    }
-                });
-            }); }
+    if (facade.countItems !== undefined) {
+        describe('countItems', function () {
+            testUsingFilter_1.default({
+                facade: facade,
+                toGetAllItems: function (filter) { return __awaiter(_this, void 0, void 0, function () {
+                    var count, expectedCount;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0: return [4 /*yield*/, facade.countItems({ filter: filter })];
+                            case 1:
+                                count = (_a.sent()).count;
+                                expectedCount = 2;
+                                expect(count).toBe(expectedCount);
+                                return [2 /*return*/];
+                        }
+                    });
+                }); },
+                toGetFirstItem: function (filter) { return __awaiter(_this, void 0, void 0, function () {
+                    var count, expectedCount;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0: return [4 /*yield*/, facade.countItems({ filter: filter })];
+                            case 1:
+                                count = (_a.sent()).count;
+                                expectedCount = 1;
+                                expect(count).toBe(expectedCount);
+                                return [2 /*return*/];
+                        }
+                    });
+                }); },
+                toGetNoItems: function (filter) { return __awaiter(_this, void 0, void 0, function () {
+                    var count, expectedCount;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0: return [4 /*yield*/, facade.countItems({ filter: filter })];
+                            case 1:
+                                count = (_a.sent()).count;
+                                expectedCount = 0;
+                                expect(count).toBe(expectedCount);
+                                return [2 /*return*/];
+                        }
+                    });
+                }); },
+                toGetSecondItem: function (filter) { return __awaiter(_this, void 0, void 0, function () {
+                    var count, expectedCount;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0: return [4 /*yield*/, facade.countItems({ filter: filter })];
+                            case 1:
+                                count = (_a.sent()).count;
+                                expectedCount = 1;
+                                expect(count).toBe(expectedCount);
+                                return [2 /*return*/];
+                        }
+                    });
+                }); },
+            });
         });
-    });
+    }
 });
 //# sourceMappingURL=test.js.map
