@@ -1,6 +1,8 @@
-import { OutgoingHttpHeaders } from "http";
+export interface OutgoingHttpHeaders {
+  [header: string]: number | string | string[] | undefined;
+}
 
-export interface EnvelopedResponse<T> {
+export default interface EnvelopedResponse<T> {
   readonly status: number;
   readonly body: T;
   readonly headers: OutgoingHttpHeaders;
