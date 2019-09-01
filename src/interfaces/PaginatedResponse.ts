@@ -7,7 +7,7 @@ export interface PaginationMetadata {
   readonly before: string | null;
   readonly totalCount: number;
 }
-export interface PaginatedResponse<I extends Item> {
+export default interface PaginatedResponse<I extends Item> {
   readonly data: I[];
   readonly pagination: PaginationMetadata;
 }
