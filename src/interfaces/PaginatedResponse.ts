@@ -1,10 +1,11 @@
+import Cursor from './Cursor';
 import Item from './Item';
 
 export interface PaginationMetadata {
   readonly hasAfter: boolean;
   readonly hasBefore: boolean;
-  readonly after: string | null;
-  readonly before: string | null;
+  readonly after: Cursor;
+  readonly before: Cursor;
   readonly totalCount: number;
 }
 export default interface PaginatedResponse<I extends Item> {
